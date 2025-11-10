@@ -7,30 +7,44 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "baixas")
-public class Baixas implements Serializable {
+@Table(name = "pesoleite")
+public class PesagemLeite implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private double peso;
     private Date data;
-    private String motivo;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_animal")
     private Animal animal;
 
-    public Baixas() {
+    public PesagemLeite() {
 
     }
 
-    public Baixas(Date data, String motivo, Animal animal) {
+    public PesagemLeite(int id, double peso, Date data, Animal animal) {
+        this.id = id;
+        this.peso = peso;
         this.data = data;
-        this.motivo = motivo;
         this.animal = animal;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPesagemLeite(double peso) {
+        if (peso >= 0) {
+            this.peso = peso;
+            System.out.println("Sucesso ao setar peso");
+        } else {
+            System.out.println("Erro ao setar peso");
+        }
     }
 
     public Date getData() {
@@ -43,19 +57,6 @@ public class Baixas implements Serializable {
             System.out.println("Sucesso ao setar data");
         } else {
             System.out.println("Erro ao setar data");
-        }
-    }
-
-    public String getMotivo() {
-        return motivo;
-    }
-
-    public void setMotivo(String motivo) {
-        if (!motivo.equals("")) {
-            this.motivo = motivo;
-            System.out.println("Sucesso ao setar motivo");
-        } else {
-            System.out.println("Erro ao setar animal");
         }
     }
 
@@ -74,7 +75,7 @@ public class Baixas implements Serializable {
 
     @Override
     public String toString() {
-        return "Baixas{" + "id=" + id + ", data=" + data + ", motivo=" + motivo + ", animal=" + animal + '}';
+        return "pesoLeite{" + "id=" + id + ", peso=" + peso + ", data=" + data + ", animal=" + animal + '}';
     }
 
 }

@@ -1,13 +1,13 @@
 package model;
 
-import entidades.pesoLeite;
+import entidades.PesagemLeite;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ModelPeso extends AbstractTableModel {
 
-    private List<pesoLeite> pesos = new ArrayList<>();
+    private List<PesagemLeite> pesos = new ArrayList<>();
 
     @Override
     public int getRowCount() {
@@ -37,7 +37,7 @@ public class ModelPeso extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        pesoLeite p = pesos.get(rowIndex);
+        PesagemLeite p = pesos.get(rowIndex);
         switch (columnIndex) {
             case 0: {
                 return " " + p.getAnimal().getNumeroAnimal();
@@ -56,7 +56,7 @@ public class ModelPeso extends AbstractTableModel {
         pesos.clear();
     }
 
-    public pesoLeite getPeso(int rowIndex) {
+    public PesagemLeite getPeso(int rowIndex) {
         return pesos.get(rowIndex);
     }
 
@@ -65,7 +65,7 @@ public class ModelPeso extends AbstractTableModel {
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
 
-    public void InserirPeso(pesoLeite p) {
+    public void InserirPeso(PesagemLeite p) {
         pesos.add(p);
         fireTableRowsInserted(pesos.size() - 1, pesos.size() - 1);
     }

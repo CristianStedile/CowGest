@@ -5,7 +5,7 @@ import dao.DaoAplicacaoMedicacao;
 import dao.DaoMedicacao;
 import entidades.Animal;
 import entidades.Medicacao;
-import entidades.aplicacaoMedicacao;
+import entidades.AnimalMedicacao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -18,7 +18,7 @@ public class ControlAplicacaoMedicacao {
     private FCadAplicacaoMedicacao fCadAplicacaoMedicacao;
     private DaoAplicacaoMedicacao daoAplicacaoMedicacao;
     private FConsAplicacaoMedicacao fConsAplicacaoMedicacao;
-    private aplicacaoMedicacao aplicacaoSelecionada;
+    private AnimalMedicacao aplicacaoSelecionada;
     private ModelAplicacaoMedicacao modelAplicacaoMedicacao;
     private DaoAnimal daoAnimal;
     private DaoMedicacao daoMedicacao;
@@ -83,7 +83,7 @@ public class ControlAplicacaoMedicacao {
             String dataAplicacao = fCadAplicacaoMedicacao.AplicacaoData.getText();
             Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadAplicacaoMedicacao.AplicacaoNumero.getModel().getSelectedItem()));
             Medicacao m = daoMedicacao.selecionar((String) fCadAplicacaoMedicacao.AplicacaoNome.getModel().getSelectedItem());
-            aplicacaoMedicacao am = new aplicacaoMedicacao(0, dataAplicacao, a, m);
+            AnimalMedicacao am = new AnimalMedicacao(0, dataAplicacao, a, m);
             if (daoAplicacaoMedicacao.inserir(am)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                 limpar();
@@ -125,7 +125,7 @@ public class ControlAplicacaoMedicacao {
         int linhaSelecionada = fConsAplicacaoMedicacao.AplicacaoTabela.getSelectedRow();
         if (linhaSelecionada >= 0) {
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo excluir a aplicação da medicação?") == 0) {
-                aplicacaoMedicacao am = modelAplicacaoMedicacao.getAplicacao(linhaSelecionada);
+                AnimalMedicacao am = modelAplicacaoMedicacao.getAplicacao(linhaSelecionada);
                 if (daoAplicacaoMedicacao.remover(am)) {
                     JOptionPane.showMessageDialog(null, "Aplicação excluída");
                     modelAplicacaoMedicacao.ExcluirAplicacao(linhaSelecionada);
@@ -145,7 +145,7 @@ public class ControlAplicacaoMedicacao {
 
     public void carregarAplicacoes() {
         modelAplicacaoMedicacao.Limpar();
-        for (aplicacaoMedicacao ap : daoAplicacaoMedicacao.listar()) {
+        for (AnimalMedicacao ap : daoAplicacaoMedicacao.listar()) {
             modelAplicacaoMedicacao.InserirAplicacao(ap);
         }
     }

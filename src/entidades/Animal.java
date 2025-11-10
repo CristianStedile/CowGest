@@ -1,6 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,81 +10,83 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "animal")
-public class Animal implements Serializable{
+public class Animal implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int numeroAnimal;
-    private String dataNascAnimal;
-    private String especieAnimal;
-    private String sexoAnimal;
-    private int baixado;
+    private int numero;
+    private String estado;
+    @Column(name = "repeticoes_cio")
+    private int repeticoesCio;
+    private int carencia;
 
-    public Animal(){
-    
-    }
-    
-    public Animal(int id, int numeroAnimal, String dataNascAnimal, String especieAnimal, String sexoAnimal, int baixado) {
-        this.id = id;
-        this.numeroAnimal = numeroAnimal;
-        this.dataNascAnimal = dataNascAnimal;
-        this.especieAnimal = especieAnimal;
-        this.sexoAnimal = sexoAnimal;
-        this.baixado = baixado;
+    public Animal() {
+
     }
 
-    public int getId() {
-        return id;
+    public Animal(int numero) {
+        this.numero = numero;
+        this.estado = "Vazia";
+        this.carencia = 0;
+        this.repeticoesCio = 0;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getNumero() {
+        return numero;
     }
 
-    public int getNumeroAnimal() {
-        return numeroAnimal;
+    public void setNumero(int numero) {
+        if (String.valueOf(numero).length() == 6) {
+            this.numero = numero;
+            System.out.println("Sucesso ao setar número");
+        } else {
+            System.out.println("Erro ao setar número");
+        }
     }
 
-    public void setNumeroAnimal(int numeroAnimal) {
-        this.numeroAnimal = numeroAnimal;
+    public String getEstado() {
+        return estado;
     }
 
-    public String getDataNascAnimal() {
-        return dataNascAnimal;
+    public void setEstado(String estado) {
+        if (!estado.equals("")) {
+            this.estado = estado;
+            System.out.println("Sucesso ao setar estado");
+        } else {
+            System.out.println("Erro ao setar estado");
+        }
     }
 
-    public void setDataNascAnimal(String dataNascAnimal) {
-        this.dataNascAnimal = dataNascAnimal;
+    public int getRepeticoesCio() {
+        return repeticoesCio;
     }
 
-    public String getEspecieAnimal() {
-        return especieAnimal;
+    public void setRepeticoesCio(int repeticoesCio) {
+        if (repeticoesCio >= 0) {
+            this.repeticoesCio = repeticoesCio;
+            System.out.println("Sucesso ao setar repetições de cio");
+        } else {
+            System.out.println("Erro ao setar repetições de cio");
+        }
     }
 
-    public void setEspecieAnimal(String especieAnimal) {
-        this.especieAnimal = especieAnimal;
+    public int getCarencia() {
+        return carencia;
     }
 
-    public String getSexoAnimal() {
-        return sexoAnimal;
-    }
-
-    public void setSexoAnimal(String sexoAnimal) {
-        this.sexoAnimal = sexoAnimal;
-    }
-
-    public int getBaixado() {
-        return baixado;
-    }
-
-    public void setBaixado(int baixado) {
-        this.baixado = baixado;
+    public void setCarencia(int carencia) {
+        if (carencia >= 0) {
+            this.carencia = carencia;
+            System.out.println("Sucesso ao setar carência");
+        } else {
+            System.out.println("Erro ao setar carência");
+        }
     }
 
     @Override
     public String toString() {
-        return "Animal{" + "id=" + id + ", numeroAnimal=" + numeroAnimal + ", dataNascAnimal=" + dataNascAnimal + ", especieAnimal=" + especieAnimal + ", sexoAnimal=" + sexoAnimal + ", baixado=" + baixado + '}';
+        return "Animal{" + "id=" + id + ", numero=" + numero + ", estado=" + estado + ", repeticoesCio=" + repeticoesCio + ", carencia=" + carencia + '}';
     }
-    
-    
+
 }

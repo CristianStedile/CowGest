@@ -1,13 +1,13 @@
 package model;
 
-import entidades.aplicacaoMedicacao;
+import entidades.AnimalMedicacao;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ModelAplicacaoMedicacao extends AbstractTableModel {
 
-    private List<aplicacaoMedicacao> aplicacoes = new ArrayList<>();
+    private List<AnimalMedicacao> aplicacoes = new ArrayList<>();
 
     @Override
     public int getRowCount() {
@@ -37,7 +37,7 @@ public class ModelAplicacaoMedicacao extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        aplicacaoMedicacao am = aplicacoes.get(rowIndex);
+        AnimalMedicacao am = aplicacoes.get(rowIndex);
         switch (columnIndex) {
             case 0: {
                 return " "+am.getAnimal().getNumeroAnimal();
@@ -56,7 +56,7 @@ public class ModelAplicacaoMedicacao extends AbstractTableModel {
         aplicacoes.clear();
     }
 
-    public aplicacaoMedicacao getAplicacao(int rowIndex) {
+    public AnimalMedicacao getAplicacao(int rowIndex) {
         return aplicacoes.get(rowIndex);
     }
 
@@ -65,7 +65,7 @@ public class ModelAplicacaoMedicacao extends AbstractTableModel {
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
 
-    public void InserirAplicacao(aplicacaoMedicacao am) {
+    public void InserirAplicacao(AnimalMedicacao am) {
         aplicacoes.add(am);
         fireTableRowsInserted(aplicacoes.size() - 1, aplicacoes.size() - 1);
     }

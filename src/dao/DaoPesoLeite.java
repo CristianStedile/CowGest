@@ -1,12 +1,12 @@
 package dao;
 
-import entidades.pesoLeite;
+import entidades.PesagemLeite;
 import java.util.List;
 import javax.persistence.PersistenceException;
 
 public class DaoPesoLeite extends Dao {
 
-    public boolean inserir(pesoLeite p) {
+    public boolean inserir(PesagemLeite p) {
         try {
             em.getTransaction().begin();
             em.persist(p);
@@ -20,7 +20,7 @@ public class DaoPesoLeite extends Dao {
         }
     }
 
-    public boolean excluir(pesoLeite p) {
+    public boolean excluir(PesagemLeite p) {
         try {
             em.getTransaction().begin();
             em.remove(p);
@@ -34,7 +34,7 @@ public class DaoPesoLeite extends Dao {
         }
     }
 
-    public boolean editar(pesoLeite p) {
+    public boolean editar(PesagemLeite p) {
         try {
             em.getTransaction().begin();
             em.merge(p);
@@ -48,7 +48,7 @@ public class DaoPesoLeite extends Dao {
         }
     }
 
-    public List<pesoLeite> listar() {
+    public List<PesagemLeite> listar() {
         return em.createQuery("select p from pesoLeite p").getResultList();
     }
 }

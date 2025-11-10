@@ -1,7 +1,7 @@
 package control;
 
 import dao.DaoLeiteVendido;
-import entidades.LeiteVendido;
+import entidades.VendaLeite;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -16,7 +16,7 @@ public class ControlLeiteVendido {
     private DaoLeiteVendido daoLeiteVendido;
     private FConsLeiteVendido fConsLeiteVendido;
     private FCadFiltrar fCadFiltrar;
-    private LeiteVendido leiteSelecionado;
+    private VendaLeite leiteSelecionado;
     private ModelLeiteVendido modelLeiteVendido;
 
     public ControlLeiteVendido() {
@@ -96,7 +96,7 @@ public class ControlLeiteVendido {
     public void filtrarMes(){
         int mes = Integer.parseInt(fCadFiltrar.mes.getText());
         modelLeiteVendido.Limpar();
-        for(LeiteVendido lv : daoLeiteVendido.listarMes(mes)){
+        for(VendaLeite lv : daoLeiteVendido.listarMes(mes)){
             modelLeiteVendido.InserirLeiteVendido(lv);
             fCadFiltrar.setVisible(false);
             cancelar2();
@@ -105,7 +105,7 @@ public class ControlLeiteVendido {
     
     public void carregarLeiteVendido(){
         modelLeiteVendido.Limpar();
-        for(LeiteVendido lv : daoLeiteVendido.listar()){
+        for(VendaLeite lv : daoLeiteVendido.listar()){
             modelLeiteVendido.InserirLeiteVendido(lv);
         }
     }
@@ -121,7 +121,7 @@ public class ControlLeiteVendido {
             int dia = Integer.parseInt(fCadLeiteVendido.dia.getText());
             int mes = Integer.parseInt(fCadLeiteVendido.mes.getText());
             int ano = Integer.parseInt(fCadLeiteVendido.ano.getText());
-            LeiteVendido lv = new LeiteVendido(0, Litros, dia, mes, ano);
+            VendaLeite lv = new VendaLeite(0, Litros, dia, mes, ano);
             if (daoLeiteVendido.inserir(lv)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                 limpar();

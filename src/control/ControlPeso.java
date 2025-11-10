@@ -3,7 +3,7 @@ package control;
 import dao.DaoAnimal;
 import dao.DaoPesoLeite;
 import entidades.Animal;
-import entidades.pesoLeite;
+import entidades.PesagemLeite;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -17,7 +17,7 @@ public class ControlPeso {
     private DaoPesoLeite daoPesoLeite;
     private DaoAnimal daoAnimal;
     private FConsPesoLeite fConsPesoLeite;
-    private pesoLeite pesoSelecionado;
+    private PesagemLeite pesoSelecionado;
     private ModelPeso modelPeso;
     
     public ControlPeso() {
@@ -81,7 +81,7 @@ public class ControlPeso {
             String dataPesagem = fCadPesoLeite.PesoData.getText();
             Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadPesoLeite.animais.getModel().getSelectedItem()));
             double pesagem = Double.parseDouble(fCadPesoLeite.PesoPesagem.getText().replace(",", "."));
-            pesoLeite p = new pesoLeite(0, pesagem, dataPesagem, a);
+            PesagemLeite p = new PesagemLeite(0, pesagem, dataPesagem, a);
             if (daoPesoLeite.inserir(p)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                 limpar();
@@ -125,7 +125,7 @@ public class ControlPeso {
         int linhaSelecionada = fConsPesoLeite.PesoTabela.getSelectedRow();
         if(linhaSelecionada >= 0){
             if(JOptionPane.showConfirmDialog(null, "Deseja mesmo excluir a pesagem?") == 0){
-                pesoLeite p = modelPeso.getPeso(linhaSelecionada);
+                PesagemLeite p = modelPeso.getPeso(linhaSelecionada);
                 if(daoPesoLeite.excluir(p)){
                     JOptionPane.showMessageDialog(null, "Pesagem excluída!");
                     modelPeso.ExcluirPeso(linhaSelecionada);
@@ -145,7 +145,7 @@ public class ControlPeso {
     
     public void carregarPeso() {
         modelPeso.Limpar();
-        for(pesoLeite p : daoPesoLeite.listar()){
+        for(PesagemLeite p : daoPesoLeite.listar()){
             modelPeso.InserirPeso(p);
         }
     }

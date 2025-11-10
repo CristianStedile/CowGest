@@ -1,11 +1,11 @@
 package dao;
 
-import entidades.aplicacaoMedicacao;
+import entidades.AnimalMedicacao;
 import java.util.List;
 import javax.persistence.PersistenceException;
 
 public class DaoAplicacaoMedicacao extends Dao{
-    public boolean inserir(aplicacaoMedicacao am){
+    public boolean inserir(AnimalMedicacao am){
         try{
             em.getTransaction().begin();
             em.persist(am);
@@ -19,7 +19,7 @@ public class DaoAplicacaoMedicacao extends Dao{
         }
     }
     
-    public boolean remover(aplicacaoMedicacao am) {
+    public boolean remover(AnimalMedicacao am) {
         try {
             em.getTransaction().begin();
             em.remove(am);
@@ -33,7 +33,7 @@ public class DaoAplicacaoMedicacao extends Dao{
         }
     }
 
-    public boolean editar(aplicacaoMedicacao am) {
+    public boolean editar(AnimalMedicacao am) {
         try {
             em.getTransaction().begin();
             em.merge(am);
@@ -47,7 +47,7 @@ public class DaoAplicacaoMedicacao extends Dao{
         }
     }
     
-    public List<aplicacaoMedicacao> listar(){
+    public List<AnimalMedicacao> listar(){
     return em.createQuery("select ap from aplicacaoMedicacao ap").getResultList();
     }
 }
