@@ -1,16 +1,15 @@
 package dao;
 
-import entidades.Animal;
+import entidades.Pasto;
 import java.util.List;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 
-public class DaoAnimal extends Dao {
-
-    public boolean inserir(Animal a) {
+public class DaoPasto extends Dao{
+    
+    public boolean inserir(Pasto p) {
         try {
             em.getTransaction().begin();
-            em.persist(a);
+            em.persist(p);
             em.getTransaction().commit();
             return true;
         } catch (PersistenceException e) {
@@ -21,10 +20,10 @@ public class DaoAnimal extends Dao {
         }
     }
 
-    public boolean remover(Animal a) {
+    public boolean remover(Pasto p) {
         try {
             em.getTransaction().begin();
-            em.remove(a);
+            em.remove(p);
             em.getTransaction().commit();
             return true;
         } catch (PersistenceException e) {
@@ -35,10 +34,10 @@ public class DaoAnimal extends Dao {
         }
     }
 
-    public boolean editar(Animal a) {
+    public boolean editar(Pasto p) {
         try {
             em.getTransaction().begin();
-            em.merge(a);
+            em.merge(p);
             em.getTransaction().commit();
             return true;
         } catch (PersistenceException e) {
@@ -49,15 +48,7 @@ public class DaoAnimal extends Dao {
         }
     }
 
-    public Animal selecionar(int numeroAnimal) {
-        try {
-            return (Animal) em.createQuery("select a from Animal a where a.numeroAnimal = :numeroAnimal").setParameter("numeroAnimal", numeroAnimal).getSingleResult();
-        } catch (NoResultException n) {
-            return null;
-        }
-    }
-
-    public List<Animal> listar() {
-        return em.createQuery("select a from Animal a where a.baixado=0").getResultList();
+    public List<Pasto> listar() {
+        return em.createQuery("select p from Pasto p").getResultList();
     }
 }

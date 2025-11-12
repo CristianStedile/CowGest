@@ -50,7 +50,7 @@ public class Animal implements Serializable {
     }
 
     public void setEstado(String estado) {
-        if (!estado.equals("")) {
+        if (estado.equals("Vazia") || estado.equals("Inseminada") || estado.equals("Recém parida") || estado.equals("Prenha")) {
             this.estado = estado;
             System.out.println("Sucesso ao setar estado");
         } else {

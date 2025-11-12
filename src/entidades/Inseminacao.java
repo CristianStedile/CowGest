@@ -11,8 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "animalmedicacao")
-public class AnimalMedicacao implements Serializable {
+@Table(name = "inseminacao")
+public class Inseminacao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,18 +22,17 @@ public class AnimalMedicacao implements Serializable {
     @JoinColumn(name = "id_animal")
     private Animal animal;
     @ManyToOne
-    @JoinColumn(name = "id_medicacao")
-    private Medicacao medicacao;
+    @JoinColumn(name = "id_semen")
+    private Semen semen;
 
-    public AnimalMedicacao() {
+    public Inseminacao() {
 
     }
 
-    public AnimalMedicacao(int id, Date data, Animal animal, Medicacao medicacao) {
-        this.id = id;
+    public Inseminacao(Date data, Animal animal, Semen semen) {
         this.data = data;
         this.animal = animal;
-        this.medicacao = medicacao;
+        this.semen = semen;
     }
 
     public Date getData() {
@@ -62,22 +61,17 @@ public class AnimalMedicacao implements Serializable {
         }
     }
 
-    public Medicacao getMedicacao() {
-        return medicacao;
+    public Semen getSemen() {
+        return semen;
     }
 
-    public void setMedicacao(Medicacao medicacao) {
-        if (medicacao != null) {
-            this.medicacao = medicacao;
-            System.out.println("Sucesso ao setar animal");
+    public void setSemen(Semen semen) {
+        if (semen != null) {
+            this.semen = semen;
+            System.out.println("Sucesso ao setar sêmen");
         } else {
-            System.out.println("Erro ao setar animal");
+            System.out.println("Erro ao setar sêmen");
         }
-    }
-
-    @Override
-    public String toString() {
-        return "aplicacaoMedicacao{" + "id=" + id + ", data=" + data + ", animal=" + animal + ", medicacao=" + medicacao + '}';
     }
 
 }
