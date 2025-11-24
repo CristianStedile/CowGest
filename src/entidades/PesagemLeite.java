@@ -1,7 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +18,7 @@ public class PesagemLeite implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double peso;
-    private Date data;
+    private LocalDate data;
     @ManyToOne
     @JoinColumn(name = "id_animal")
     private Animal animal;
@@ -27,11 +27,25 @@ public class PesagemLeite implements Serializable {
 
     }
 
-    public PesagemLeite(int id, double peso, Date data, Animal animal) {
-        this.id = id;
+    public PesagemLeite(double peso, LocalDate data, Animal animal) {
         this.peso = peso;
         this.data = data;
         this.animal = animal;
+    }
+    
+    public double getRacao(){
+        if(this.peso <= 5 && this.peso >= 1){
+            return 0.5;
+        }else if(this.peso <= 10 && this.peso > 5){
+            return 1;
+        }else if(this.peso <= 15 && this.peso > 10){
+            return 1.5;
+        }else if(this.peso <= 20 && this.peso > 15){
+            return 2;
+        }else if (this.peso > 20){
+            return 2.5;
+        }
+        return 0;
     }
 
     public double getPeso() {
@@ -47,11 +61,11 @@ public class PesagemLeite implements Serializable {
         }
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         if (data != null) {
             this.data = data;
             System.out.println("Sucesso ao setar data");

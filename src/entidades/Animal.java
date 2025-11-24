@@ -1,6 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,12 @@ public class Animal implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int numero;
+    @Column(name = "data_nascimento")
+    private LocalDate dataNascimento;
+    private String raca;
+    private String sexo;
     private String estado;
+    private boolean baixado;
     @Column(name = "repeticoes_cio")
     private int repeticoesCio;
     private int carencia;
@@ -25,11 +31,43 @@ public class Animal implements Serializable {
 
     }
 
-    public Animal(int numero) {
+    public Animal(int numero, LocalDate dataNascimento, String raca, String sexo) {
+        this.raca = raca;
+        this.sexo = sexo;
+        this.dataNascimento = dataNascimento;
         this.numero = numero;
         this.estado = "Vazia";
         this.carencia = 0;
         this.repeticoesCio = 0;
+        this.baixado = false;
+    }
+    
+    public void setBaixado(){
+        this.baixado = true;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public int getNumero() {
@@ -86,7 +124,7 @@ public class Animal implements Serializable {
 
     @Override
     public String toString() {
-        return "Animal{" + "id=" + id + ", numero=" + numero + ", estado=" + estado + ", repeticoesCio=" + repeticoesCio + ", carencia=" + carencia + '}';
+        return "Animal{" + "id=" + id + ", numero=" + numero + ", dataNascimento=" + dataNascimento + ", raca=" + raca + ", sexo=" + sexo + ", estado=" + estado + ", repeticoesCio=" + repeticoesCio + ", carencia=" + carencia + '}';
     }
 
 }

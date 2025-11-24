@@ -1,7 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +17,7 @@ public class Baixas implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date data;
+    private LocalDate data;
     private String motivo;
     @OneToOne
     @JoinColumn(name = "id_animal")
@@ -27,17 +27,17 @@ public class Baixas implements Serializable {
 
     }
 
-    public Baixas(Date data, String motivo, Animal animal) {
+    public Baixas(LocalDate data, String motivo, Animal animal) {
         this.data = data;
         this.motivo = motivo;
         this.animal = animal;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         if (data != null) {
             this.data = data;
             System.out.println("Sucesso ao setar data");

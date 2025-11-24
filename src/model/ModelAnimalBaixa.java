@@ -40,7 +40,7 @@ public class ModelAnimalBaixa extends AbstractTableModel {
         Baixas b = baixas.get(rowIndex);
         switch (columnIndex) {
             case 0: {
-                return " " + b.getAnimal().getNumeroAnimal();
+                return " " + b.getAnimal().getNumero();
             }
             case 1: {
                 return " " + b.getData();

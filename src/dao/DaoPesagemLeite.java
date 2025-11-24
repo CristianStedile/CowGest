@@ -1,28 +1,15 @@
 package dao;
 
-import entidades.AnimalMedicacao;
+import entidades.PesagemLeite;
 import java.util.List;
 import javax.persistence.PersistenceException;
 
-public class DaoAplicacaoMedicacao extends Dao{
-    public boolean inserir(AnimalMedicacao am){
-        try{
-            em.getTransaction().begin();
-            em.persist(am);
-            em.getTransaction().commit();
-        return true;
-        }catch(PersistenceException e){
-            if(em.getTransaction().isActive()){
-            em.getTransaction().rollback();
-            }
-        return false;
-        }
-    }
-    
-    public boolean remover(AnimalMedicacao am) {
+public class DaoPesagemLeite extends Dao {
+
+    public boolean inserir(PesagemLeite p) {
         try {
             em.getTransaction().begin();
-            em.remove(am);
+            em.persist(p);
             em.getTransaction().commit();
             return true;
         } catch (PersistenceException e) {
@@ -33,10 +20,10 @@ public class DaoAplicacaoMedicacao extends Dao{
         }
     }
 
-    public boolean editar(AnimalMedicacao am) {
+    public boolean excluir(PesagemLeite p) {
         try {
             em.getTransaction().begin();
-            em.merge(am);
+            em.remove(p);
             em.getTransaction().commit();
             return true;
         } catch (PersistenceException e) {
@@ -46,8 +33,22 @@ public class DaoAplicacaoMedicacao extends Dao{
             return false;
         }
     }
-    
-    public List<AnimalMedicacao> listar(){
-    return em.createQuery("select ap from aplicacaoMedicacao ap").getResultList();
+
+    public boolean editar(PesagemLeite p) {
+        try {
+            em.getTransaction().begin();
+            em.merge(p);
+            em.getTransaction().commit();
+            return true;
+        } catch (PersistenceException e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            return false;
+        }
+    }
+
+    public List<PesagemLeite> listar() {
+        return em.createQuery("select p from pesoLeite p").getResultList();
     }
 }

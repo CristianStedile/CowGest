@@ -16,7 +16,7 @@ public class ModelPeso extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -31,6 +31,9 @@ public class ModelPeso extends AbstractTableModel {
             case 2: {
                 return "Data da Pesagem";
             }
+            case 3: {
+                return "Quantidade de Ração";
+            }
         }
         return "";
     }
@@ -40,13 +43,16 @@ public class ModelPeso extends AbstractTableModel {
         PesagemLeite p = pesos.get(rowIndex);
         switch (columnIndex) {
             case 0: {
-                return " " + p.getAnimal().getNumeroAnimal();
+                return " " + p.getAnimal().getNumero();
             }
             case 1: {
-                return " " + p.getPesagemLeite();
+                return " " + p.getPeso();
             }
             case 2: {
-                return " " + p.getDataPeso();
+                return " " + p.getData();
+            }
+            case 3: {
+                return " " + p.getRacao();
             }
         }
         return null;

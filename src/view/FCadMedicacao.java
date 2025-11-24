@@ -33,7 +33,11 @@ public class FCadMedicacao extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         MedicacaoNome = new javax.swing.JTextField();
-        MedicacaoBula = new javax.swing.JTextField();
+        MedicacaoDosagem = new javax.swing.JTextField();
+        MedicacaoTipo = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        MedicacaoNome1 = new javax.swing.JTextField();
+        MedicacaoDescricao = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Medicação");
@@ -58,7 +62,19 @@ public class FCadMedicacao extends javax.swing.JDialog {
 
         MedicacaoNome.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
-        MedicacaoBula.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        MedicacaoDosagem.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+
+        MedicacaoTipo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        MedicacaoTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MedicacaoTipo.setText("Tipo:");
+
+        jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Descrição:");
+
+        MedicacaoNome1.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+
+        MedicacaoDescricao.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,18 +85,30 @@ public class FCadMedicacao extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(3, 3, 3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(3, 3, 3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(6, 6, 6)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MedicacaoBula, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                            .addComponent(MedicacaoDosagem, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                             .addComponent(MedicacaoNome)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(MedicacaoCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MedicacaoOK)))
+                        .addComponent(MedicacaoOK))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(MedicacaoTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MedicacaoNome1)
+                            .addComponent(MedicacaoDescricao))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -95,8 +123,16 @@ public class FCadMedicacao extends javax.swing.JDialog {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(MedicacaoBula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(MedicacaoDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MedicacaoTipo)
+                    .addComponent(MedicacaoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(MedicacaoDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MedicacaoOK)
                     .addComponent(MedicacaoCancelar))
@@ -108,12 +144,16 @@ public class FCadMedicacao extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField MedicacaoBula;
     public javax.swing.JButton MedicacaoCancelar;
+    public javax.swing.JTextField MedicacaoDescricao;
+    public javax.swing.JTextField MedicacaoDosagem;
     public javax.swing.JTextField MedicacaoNome;
+    public javax.swing.JTextField MedicacaoNome1;
     public javax.swing.JButton MedicacaoOK;
+    public javax.swing.JLabel MedicacaoTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

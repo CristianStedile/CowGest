@@ -2,6 +2,7 @@ package dao;
 
 import entidades.Semen;
 import java.util.List;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 
 public class DaoSemen extends Dao {
@@ -45,6 +46,14 @@ public class DaoSemen extends Dao {
                 em.getTransaction().rollback();
             }
             return false;
+        }
+    }
+    
+    public Semen selecionar(String nome) {
+        try {
+            return (Semen) em.createQuery("select s from Semen s where s.reprodutor = :nome").setParameter("nome", nome).getSingleResult();
+        } catch (NoResultException n) {
+            return null;
         }
     }
 

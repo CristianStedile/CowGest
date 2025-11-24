@@ -1,6 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ public class Inseminacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date data;
+    private LocalDate data;
     @ManyToOne
     @JoinColumn(name = "id_animal")
     private Animal animal;
@@ -29,17 +30,29 @@ public class Inseminacao implements Serializable {
 
     }
 
-    public Inseminacao(Date data, Animal animal, Semen semen) {
+    public Inseminacao(LocalDate data, Animal animal, Semen semen) {
         this.data = data;
         this.animal = animal;
         this.semen = semen;
     }
+    
+    public LocalDate getSecagem(){
+        return this.data.plusDays(220);
+    }
+    
+    public LocalDate getPreParto(){
+        return this.data.plusDays(261);
+    }
+    
+    public LocalDate getParto(){
+        return this.data.plusDays(280);
+    }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         if (data != null) {
             this.data = data;
             System.out.println("Sucesso ao setar data");

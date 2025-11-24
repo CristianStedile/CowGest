@@ -1,16 +1,16 @@
 package model;
 
-import entidades.Animal;
+import entidades.Pasto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class ModelAnimal extends AbstractTableModel{
-    private List<Animal> animais = new ArrayList<>();
+public class ModelPasto extends AbstractTableModel{
+    private List<Pasto> pastos = new ArrayList<>();
 
     @Override
     public int getRowCount() {
-        return animais.size();
+        return pastos.size();
     }
 
     @Override
@@ -22,19 +22,19 @@ public class ModelAnimal extends AbstractTableModel{
     public String getColumnName(int column){
         switch (column){
             case 0:{
-                return "Número do Animal";
+                return "Nome";
             }
             case 1:{
-                return "Data de Nascimento";
+                return "Tipo de grama";
             }
             case 2:{
-                return "Raça";
+                return "Última roçada";
             }
             case 3:{
-                return "Sexo";
+                return "Última adubação";
             }
             case 4:{
-                return "Estado";
+                return "Última sob-semeadura";
             }
         }
         return "";
@@ -42,42 +42,42 @@ public class ModelAnimal extends AbstractTableModel{
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Animal a = animais.get(rowIndex);
+        Pasto p = pastos.get(rowIndex);
         switch(columnIndex){
             case 0:{
-                return " "+a.getNumero();
+                return " "+p.getNome();
             }
             case 1:{
-                return " "+a.getDataNascimento();
+                return " "+p.getTipoGrama();
             }
             case 2:{
-                return " "+a.getRaca();
+                return " "+p.getUltimaRocada();
             }
             case 3:{
-                return " "+a.getSexo();
+                return " "+p.getUltimaAdubacao();
             }
             case 4:{
-                return a.getEstado();
+                return " "+p.getUltimaSobSemadura();
             }
         }
         return null;
     }
     
     public void Limpar(){
-        animais.clear();
+        pastos.clear();
     }
     
-    public Animal getAnimal(int rowIndex){
-        return animais.get(rowIndex);
+    public Pasto getPasto(int rowIndex){
+        return pastos.get(rowIndex);
     }
     
-    public void ExcluirAnimal(int rowIndex){
-        animais.remove(rowIndex);
+    public void excluirPasto(int rowIndex){
+        pastos.remove(rowIndex);
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
     
-    public void InserirAnimal(Animal a){
-        animais.add(a);
-        fireTableRowsInserted(animais.size()-1, animais.size()-1);
+    public void inserirPasto(Pasto p){
+        pastos.add(p);
+        fireTableRowsInserted(pastos.size()-1, pastos.size()-1);
     }
 }

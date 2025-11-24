@@ -23,8 +23,7 @@ public class Medicacao implements Serializable {
 
     }
 
-    public Medicacao(int id, String nome, String dosagem, String tipo, String descricao) {
-        this.id = id;
+    public Medicacao(String nome, String dosagem, String tipo, String descricao) {
         this.nome = nome;
         this.dosagem = dosagem;
         this.tipo = tipo;

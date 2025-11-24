@@ -6,6 +6,7 @@ import entidades.Animal;
 import entidades.Baixas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import model.ModelAnimal;
 import view.FCadAnimal;
@@ -21,8 +22,10 @@ public class ControlAnimal {
     private FCadBaixa fCadBaixa;
     private Animal animalSelecionado;
     private ModelAnimal modelAnimal;
+    private ControlPrincipal controlPrincipal;
 
     public ControlAnimal() {
+        this.controlPrincipal = new ControlPrincipal();
         this.fCadAnimal = new FCadAnimal(null, true);
         this.fConsAnimal = new FConsAnimal(null, true);
         this.modelAnimal = new ModelAnimal();
@@ -105,14 +108,14 @@ public class ControlAnimal {
     public void limpar() {
         fCadAnimal.AnimalNumero.setText("");
         fCadAnimal.AnimalNasc.setText("");
-        fCadAnimal.AnimalEspecie.setText("");
+        fCadAnimal.AnimalRaca.setText("");
         fCadAnimal.AnimalSexo.setText("");
     }
 
     public void carregarAnimais() {
         fCadBaixa.animais.removeAllItems();
         for (Animal a : daoAnimal.listar()) {
-            fCadBaixa.animais.addItem(Integer.toString(a.getNumeroAnimal()));
+            fCadBaixa.animais.addItem(Integer.toString(a.getNumero()));
         }
     }
 
@@ -121,14 +124,14 @@ public class ControlAnimal {
         if (JOptionPane.showConfirmDialog(null, "Deseja mesmo dar baixa no animal?") == 0) {
             Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadBaixa.animais.getModel().getSelectedItem()));
             String motivo = fCadBaixa.BaixaMotivo.getText();
-            String data = fCadBaixa.BaixaData.getText();
+            LocalDate data = controlPrincipal.converterDataBanco(fCadBaixa.BaixaData.getText());
             Baixas b = new Baixas(data, motivo, a);
             if (daoBaixas.inserir(b)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                 limpar2();
                 fCadBaixa.setVisible(false);
                 Animal a1 = modelAnimal.getAnimal(linhaSelecionada);
-                a1.setBaixado(1);
+                a1.setBaixado();
                 daoAnimal.editar(a1);
                 modelAnimal.ExcluirAnimal(linhaSelecionada);
             } else {
@@ -141,9 +144,10 @@ public class ControlAnimal {
         if (animalSelecionado == null) {
             int numero = Integer.parseInt(fCadAnimal.AnimalNumero.getText());
             String dataNasc = fCadAnimal.AnimalNasc.getText();
-            String especie = fCadAnimal.AnimalEspecie.getText();
+            String raca = fCadAnimal.AnimalRaca.getText();
             String sexo = fCadAnimal.AnimalSexo.getText();
-            Animal a = new Animal(0, numero, dataNasc, especie, sexo, 0);
+            LocalDate dataNascConvertida = controlPrincipal.converterDataBanco(dataNasc);
+            Animal a = new Animal(numero, dataNascConvertida, raca, sexo);
             if (daoAnimal.inserir(a)) {
                 JOptionPane.showMessageDialog(null, "Inserido com  sucesso!");
                 limpar();
@@ -151,10 +155,10 @@ public class ControlAnimal {
                 JOptionPane.showMessageDialog(null, "Erro ao inserir!");
             }
         } else {
-            animalSelecionado.setNumeroAnimal(Integer.parseInt(fCadAnimal.AnimalNumero.getText()));
-            animalSelecionado.setDataNascAnimal(fCadAnimal.AnimalNasc.getText());
-            animalSelecionado.setEspecieAnimal(fCadAnimal.AnimalEspecie.getText());
-            animalSelecionado.setSexoAnimal(fCadAnimal.AnimalSexo.getText());
+            animalSelecionado.setNumero(Integer.parseInt(fCadAnimal.AnimalNumero.getText()));
+            animalSelecionado.setDataNascimento(controlPrincipal.converterDataBanco(fCadAnimal.AnimalNasc.getText()));
+            animalSelecionado.setRaca(fCadAnimal.AnimalRaca.getText());
+            animalSelecionado.setSexo(fCadAnimal.AnimalSexo.getText());
             if (daoAnimal.editar(animalSelecionado)) {
                 JOptionPane.showMessageDialog(null, "Editado com sucesso!");
                 animalSelecionado = null;
@@ -201,10 +205,10 @@ public class ControlAnimal {
         if (linhaSelecionada >= 0) {
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo editar o animal?") == 0) {
                 animalSelecionado = modelAnimal.getAnimal(linhaSelecionada);
-                fCadAnimal.AnimalNumero.setText(Integer.toString((animalSelecionado.getNumeroAnimal())));
-                fCadAnimal.AnimalNasc.setText(animalSelecionado.getDataNascAnimal());
-                fCadAnimal.AnimalEspecie.setText(animalSelecionado.getEspecieAnimal());
-                fCadAnimal.AnimalSexo.setText(animalSelecionado.getSexoAnimal());
+                fCadAnimal.AnimalNumero.setText(Integer.toString((animalSelecionado.getNumero())));
+                fCadAnimal.AnimalNasc.setText(controlPrincipal.converterDataBr(animalSelecionado.getDataNascimento()));
+                fCadAnimal.AnimalRaca.setText(animalSelecionado.getRaca());
+                fCadAnimal.AnimalSexo.setText(animalSelecionado.getSexo());
                 fConsAnimal.setVisible(false);
                 fCadAnimal.setVisible(true);
             }

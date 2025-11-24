@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class ModelAplicacaoMedicacao extends AbstractTableModel {
+public class ModelAnimalMedicacao extends AbstractTableModel {
 
     private List<AnimalMedicacao> aplicacoes = new ArrayList<>();
 
@@ -40,13 +40,13 @@ public class ModelAplicacaoMedicacao extends AbstractTableModel {
         AnimalMedicacao am = aplicacoes.get(rowIndex);
         switch (columnIndex) {
             case 0: {
-                return " "+am.getAnimal().getNumeroAnimal();
+                return " "+am.getAnimal().getNumero();
             }
             case 1: {
-                return " "+am.getMedicacao().getNomeMedicacao();
+                return " "+am.getMedicacao().getNome();
             }
             case 2: {
-                return " "+am.getDataAplicacao();
+                return " "+am.getData();
             }
         }
         return null;

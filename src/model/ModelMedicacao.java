@@ -37,7 +37,7 @@ public class ModelMedicacao extends AbstractTableModel {
         Medicacao m = medicacoes.get(rowIndex);
         switch (columnIndex) {
             case 0: {
-                return " "+m.getNomeMedicacao();
+                return " "+m.getNome();
             }
             case 1: {
                 return " "+m.getDosagem();

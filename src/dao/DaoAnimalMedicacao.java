@@ -1,15 +1,28 @@
 package dao;
 
-import entidades.PesagemLeite;
+import entidades.AnimalMedicacao;
 import java.util.List;
 import javax.persistence.PersistenceException;
 
-public class DaoPesoLeite extends Dao {
-
-    public boolean inserir(PesagemLeite p) {
+public class DaoAnimalMedicacao extends Dao{
+    public boolean inserir(AnimalMedicacao am){
+        try{
+            em.getTransaction().begin();
+            em.persist(am);
+            em.getTransaction().commit();
+        return true;
+        }catch(PersistenceException e){
+            if(em.getTransaction().isActive()){
+            em.getTransaction().rollback();
+            }
+        return false;
+        }
+    }
+    
+    public boolean remover(AnimalMedicacao am) {
         try {
             em.getTransaction().begin();
-            em.persist(p);
+            em.remove(am);
             em.getTransaction().commit();
             return true;
         } catch (PersistenceException e) {
@@ -20,10 +33,10 @@ public class DaoPesoLeite extends Dao {
         }
     }
 
-    public boolean excluir(PesagemLeite p) {
+    public boolean editar(AnimalMedicacao am) {
         try {
             em.getTransaction().begin();
-            em.remove(p);
+            em.merge(am);
             em.getTransaction().commit();
             return true;
         } catch (PersistenceException e) {
@@ -33,22 +46,8 @@ public class DaoPesoLeite extends Dao {
             return false;
         }
     }
-
-    public boolean editar(PesagemLeite p) {
-        try {
-            em.getTransaction().begin();
-            em.merge(p);
-            em.getTransaction().commit();
-            return true;
-        } catch (PersistenceException e) {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            return false;
-        }
-    }
-
-    public List<PesagemLeite> listar() {
-        return em.createQuery("select p from pesoLeite p").getResultList();
+    
+    public List<AnimalMedicacao> listar(){
+    return em.createQuery("select ap from aplicacaoMedicacao ap").getResultList();
     }
 }

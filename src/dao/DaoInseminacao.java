@@ -20,7 +20,7 @@ public class DaoInseminacao extends Dao {
         }
     }
 
-    public boolean remover(Inseminacao i) {
+    public boolean excluir(Inseminacao i) {
         try {
             em.getTransaction().begin();
             em.remove(i);

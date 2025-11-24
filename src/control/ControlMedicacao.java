@@ -69,14 +69,16 @@ public class ControlMedicacao {
 
     public void limpar() {
         fCadMedicacao.MedicacaoNome.setText("");
-        fCadMedicacao.MedicacaoBula.setText("");
+        fCadMedicacao.MedicacaoDosagem.setText("");
     }
 
     public void gravarMedicacao() {
         if (medicacaoSelecionada == null) {
             String nomeMedicacao = fCadMedicacao.MedicacaoNome.getText();
-            String bulaMedicacao = fCadMedicacao.MedicacaoBula.getText();
-            Medicacao m = new Medicacao(0, nomeMedicacao, bulaMedicacao);
+            String dosagem = fCadMedicacao.MedicacaoDosagem.getText();
+            String tipo = fCadMedicacao.MedicacaoTipo.getText();
+            String descricao = fCadMedicacao.MedicacaoDescricao.getText();
+            Medicacao m = new Medicacao(tipo, dosagem, tipo, descricao);
             if (daoMedicacao.inserir(m)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                 limpar();
@@ -84,8 +86,10 @@ public class ControlMedicacao {
                 JOptionPane.showMessageDialog(null, "Erro ao inserir!");
             }
         } else {
-            medicacaoSelecionada.setNomeMedicacao(fCadMedicacao.MedicacaoNome.getText());
-            medicacaoSelecionada.setDosagem(fCadMedicacao.MedicacaoBula.getText());
+            medicacaoSelecionada.setNome(fCadMedicacao.MedicacaoNome.getText());
+            medicacaoSelecionada.setDosagem(fCadMedicacao.MedicacaoDosagem.getText());
+            medicacaoSelecionada.setDescricao(fCadMedicacao.MedicacaoDescricao.getText());
+            medicacaoSelecionada.setTipo(fCadMedicacao.MedicacaoTipo.getText());
             if (daoMedicacao.editar(medicacaoSelecionada)) {
                 medicacaoSelecionada = null;
                 limpar();
@@ -102,8 +106,10 @@ public class ControlMedicacao {
         if (linhaSelecionada >= 0) {
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo editar a medicação?") == 0) {
                 medicacaoSelecionada = modelMedicacao.getMedicacao(linhaSelecionada);
-                fCadMedicacao.MedicacaoNome.setText(medicacaoSelecionada.getNomeMedicacao());
-                fCadMedicacao.MedicacaoBula.setText(medicacaoSelecionada.getDosagem());
+                fCadMedicacao.MedicacaoNome.setText(medicacaoSelecionada.getNome());
+                fCadMedicacao.MedicacaoDosagem.setText(medicacaoSelecionada.getDosagem());
+                fCadMedicacao.MedicacaoTipo.setText(medicacaoSelecionada.getTipo());
+                fCadMedicacao.MedicacaoDescricao.setText(medicacaoSelecionada.getDescricao());
                 fConsMedicacao.setVisible(false);
                 fCadMedicacao.setVisible(true);
             }

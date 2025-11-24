@@ -1,17 +1,17 @@
 package model;
 
-import entidades.Baixas;
+import entidades.Semen;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class ModelBaixa extends AbstractTableModel {
+public class ModelSemen extends AbstractTableModel {
 
-    private List<Baixas> baixas = new ArrayList<>();
+    private List<Semen> semens = new ArrayList<>();
 
     @Override
     public int getRowCount() {
-        return baixas.size();
+        return semens.size();
     }
 
     @Override
@@ -23,13 +23,13 @@ public class ModelBaixa extends AbstractTableModel {
     public String getColumnName(int column) {
         switch (column) {
             case 0: {
-                return "Numero do Animal";
+                return "Touro";
             }
             case 1: {
-                return "Data da Baixa";
+                return "Doses";
             }
             case 2: {
-                return "Motivo da Baixa";
+                return "Pote";
             }
         }
         return "";
@@ -37,31 +37,36 @@ public class ModelBaixa extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Baixas b = baixas.get(rowIndex);
+        Semen s = semens.get(rowIndex);
         switch (columnIndex) {
             case 0: {
-                return " " + b.getAnimal().getNumero();
+                return " " + s.getReprodutor();
             }
             case 1: {
-                return " " + b.getData();
+                return " " + s.getDoses();
             }
             case 2: {
-                return " " + b.getMotivo();
+                return " " + s.getPote();
             }
         }
         return null;
     }
 
     public void Limpar() {
-        baixas.clear();
+        semens.clear();
     }
 
-    public Baixas getBaixa(int rowIndex) {
-        return baixas.get(rowIndex);
+    public Semen getSemen(int rowIndex) {
+        return semens.get(rowIndex);
     }
 
-    public void InserirBaixa(Baixas b) {
-        baixas.add(b);
-        fireTableRowsInserted(baixas.size() - 1, baixas.size() - 1);
+    public void ExcluirSemen(int rowIndex) {
+        semens.remove(rowIndex);
+        fireTableRowsDeleted(rowIndex, rowIndex);
+    }
+
+    public void InserirSemen(Semen s) {
+        semens.add(s);
+        fireTableRowsInserted(semens.size() - 1, semens.size() - 1);
     }
 }

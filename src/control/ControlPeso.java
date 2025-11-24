@@ -1,11 +1,12 @@
 package control;
 
 import dao.DaoAnimal;
-import dao.DaoPesoLeite;
+import dao.DaoPesagemLeite;
 import entidades.Animal;
 import entidades.PesagemLeite;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import model.ModelPeso;
 import view.FCadPesoLeite;
@@ -14,18 +15,20 @@ import view.FConsPesoLeite;
 public class ControlPeso {
 
     private FCadPesoLeite fCadPesoLeite;
-    private DaoPesoLeite daoPesoLeite;
+    private DaoPesagemLeite daoPesoLeite;
     private DaoAnimal daoAnimal;
     private FConsPesoLeite fConsPesoLeite;
     private PesagemLeite pesoSelecionado;
     private ModelPeso modelPeso;
+    private ControlPrincipal controlPrincipal;
     
     public ControlPeso() {
+        this.controlPrincipal = new ControlPrincipal();
         this.fCadPesoLeite = new FCadPesoLeite(null, true);
         this.fConsPesoLeite = new FConsPesoLeite(null, true);
         this.modelPeso = new ModelPeso();  
         this.daoAnimal = new DaoAnimal();
-        daoPesoLeite = new DaoPesoLeite();
+        daoPesoLeite = new DaoPesagemLeite();
         inicializarComponentes();
     }
     
@@ -81,7 +84,8 @@ public class ControlPeso {
             String dataPesagem = fCadPesoLeite.PesoData.getText();
             Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadPesoLeite.animais.getModel().getSelectedItem()));
             double pesagem = Double.parseDouble(fCadPesoLeite.PesoPesagem.getText().replace(",", "."));
-            PesagemLeite p = new PesagemLeite(0, pesagem, dataPesagem, a);
+            LocalDate dataConvertida = controlPrincipal.converterDataBanco(dataPesagem);
+            PesagemLeite p = new PesagemLeite(pesagem, dataConvertida, a);
             if (daoPesoLeite.inserir(p)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                 limpar();
@@ -90,7 +94,7 @@ public class ControlPeso {
             }
         } else {
             pesoSelecionado.setPesagemLeite(Double.parseDouble(fCadPesoLeite.PesoPesagem.getText()));
-            pesoSelecionado.setDataPeso(fCadPesoLeite.PesoData.getText());
+            pesoSelecionado.setData(controlPrincipal.converterDataBanco(fCadPesoLeite.PesoData.getText()));
             pesoSelecionado.setAnimal((Animal) fCadPesoLeite.animais.getModel().getSelectedItem());
             if(daoPesoLeite.editar(pesoSelecionado)){
             JOptionPane.showMessageDialog(null, "Editado com sucesso!");
@@ -110,9 +114,9 @@ public class ControlPeso {
             if(JOptionPane.showConfirmDialog(null, "Deseja mesmo editar a pesagem?") == 0){
                 carregarAnimais();
                 pesoSelecionado = modelPeso.getPeso(linhaSelecionada);
-                fCadPesoLeite.animais.setSelectedItem(pesoSelecionado.getAnimal().getNumeroAnimal());
-                fCadPesoLeite.PesoPesagem.setText(Double.toString((pesoSelecionado.getPesagemLeite())));
-                fCadPesoLeite.PesoData.setText(pesoSelecionado.getDataPeso());
+                fCadPesoLeite.animais.setSelectedItem(pesoSelecionado.getAnimal().getNumero());
+                fCadPesoLeite.PesoPesagem.setText(Double.toString((pesoSelecionado.getPeso())));
+                fCadPesoLeite.PesoData.setText(controlPrincipal.converterDataBr(pesoSelecionado.getData()));
                 fConsPesoLeite.setVisible(false);
                 fCadPesoLeite.setVisible(true);
             }
@@ -153,7 +157,7 @@ public class ControlPeso {
     public void carregarAnimais(){
         fCadPesoLeite.animais.removeAllItems();
         for(Animal a : daoAnimal.listar()){
-            fCadPesoLeite.animais.addItem(Integer.toString(a.getNumeroAnimal()));
+            fCadPesoLeite.animais.addItem(Integer.toString(a.getNumero()));
         }
     }
 }
