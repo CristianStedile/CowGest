@@ -40,7 +40,7 @@ public class ModelSemen extends AbstractTableModel {
         Semen s = semens.get(rowIndex);
         switch (columnIndex) {
             case 0: {
-                return " " + s.getReprodutor();
+                return " " + s.getTouro();
             }
             case 1: {
                 return " " + s.getDoses();

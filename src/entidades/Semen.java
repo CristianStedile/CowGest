@@ -14,7 +14,7 @@ public class Semen implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String reprodutor;
+    private String touro;
     private int doses;
     private int pote;
     
@@ -22,19 +22,19 @@ public class Semen implements Serializable{
     
     }
 
-    public Semen(String reprodutor, int doses, int pote) {
-        this.reprodutor = reprodutor;
+    public Semen(String touro, int doses, int pote) {
+        this.touro = touro;
         this.doses = doses;
         this.pote = pote;
     }
 
-    public String getReprodutor() {
-        return reprodutor;
+    public String getTouro() {
+        return touro;
     }
 
-    public void setReprodutor(String reprodutor) {
-        if(!reprodutor.equals("")){
-        this.reprodutor = reprodutor;
+    public void setReprodutor(String touro) {
+        if(!touro.equals("")){
+        this.touro = touro;
             System.out.println("Sucesso ao setar reprodutor");
         } else {
             System.out.println("Erro ao setar reprodutor");

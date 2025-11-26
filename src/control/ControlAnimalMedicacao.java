@@ -25,8 +25,8 @@ public class ControlAnimalMedicacao {
     private DaoMedicacao daoMedicacao;
     private ControlPrincipal controlPrincipal;
 
-    public ControlAnimalMedicacao() {
-        this.controlPrincipal = new ControlPrincipal();
+    public ControlAnimalMedicacao(ControlPrincipal controlPrincipal) {
+        this.controlPrincipal = controlPrincipal;
         this.fCadAplicacaoMedicacao = new FCadAplicacaoMedicacao(null, true);
         this.fConsAplicacaoMedicacao = new FConsAplicacaoMedicacao(null, true);
         this.modelAplicacaoMedicacao = new ModelAnimalMedicacao();

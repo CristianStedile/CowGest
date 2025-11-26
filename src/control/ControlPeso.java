@@ -22,8 +22,8 @@ public class ControlPeso {
     private ModelPeso modelPeso;
     private ControlPrincipal controlPrincipal;
     
-    public ControlPeso() {
-        this.controlPrincipal = new ControlPrincipal();
+    public ControlPeso(ControlPrincipal controlPrincipal) {
+        this.controlPrincipal = controlPrincipal;
         this.fCadPesoLeite = new FCadPesoLeite(null, true);
         this.fConsPesoLeite = new FConsPesoLeite(null, true);
         this.modelPeso = new ModelPeso();  

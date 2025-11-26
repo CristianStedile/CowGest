@@ -48,6 +48,6 @@ public class DaoAnimalMedicacao extends Dao{
     }
     
     public List<AnimalMedicacao> listar(){
-    return em.createQuery("select ap from aplicacaoMedicacao ap").getResultList();
+    return em.createQuery("select a from AnimalMedicacao a").getResultList();
     }
 }

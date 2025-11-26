@@ -43,7 +43,7 @@ public class ModelInseminacao extends AbstractTableModel {
                 return " " + i.getAnimal().getNumero();
             }
             case 1: {
-                return " " + i.getSemen().getReprodutor();
+                return " " + i.getSemen().getTouro();
             }
             case 2: {
                 return " " + i.getData();

@@ -14,11 +14,11 @@ public class FCadSemen extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        tfTouro = new javax.swing.JFormattedTextField();
         tfDoses = new javax.swing.JTextField();
         tfPote = new javax.swing.JTextField();
         btOk = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
+        tfTouro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Semen");
@@ -39,13 +39,6 @@ public class FCadSemen extends javax.swing.JDialog {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Pote:");
 
-        try {
-            tfTouro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfTouro.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-
         tfDoses.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         tfPote.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
@@ -60,6 +53,8 @@ public class FCadSemen extends javax.swing.JDialog {
 
         btCancelar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         btCancelar.setText("CANCELAR");
+
+        tfTouro.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,9 +75,9 @@ public class FCadSemen extends javax.swing.JDialog {
                         .addComponent(btOk))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfTouro, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(tfDoses)
-                            .addComponent(tfPote))
+                            .addComponent(tfDoses, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(tfPote)
+                            .addComponent(tfTouro))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -127,6 +122,6 @@ public class FCadSemen extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     public javax.swing.JTextField tfDoses;
     public javax.swing.JTextField tfPote;
-    public javax.swing.JFormattedTextField tfTouro;
+    public javax.swing.JTextField tfTouro;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,8 +24,8 @@ public class ControlAnimal {
     private ModelAnimal modelAnimal;
     private ControlPrincipal controlPrincipal;
 
-    public ControlAnimal() {
-        this.controlPrincipal = new ControlPrincipal();
+    public ControlAnimal(ControlPrincipal controlPrincipal) {
+        this.controlPrincipal = controlPrincipal;
         this.fCadAnimal = new FCadAnimal(null, true);
         this.fConsAnimal = new FConsAnimal(null, true);
         this.modelAnimal = new ModelAnimal();

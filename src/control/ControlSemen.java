@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import model.ModelSemen;
 import view.FCadSemen;
 import view.FConsSemen;
+
 public class ControlSemen {
 
     private FCadSemen fCadSemen;
@@ -57,14 +58,14 @@ public class ControlSemen {
                 cancelar();
             }
         });
-        
+
         fConsSemen.btAdicionar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addDose();
             }
         });
-        
+
         fConsSemen.btRemover.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,7 +73,7 @@ public class ControlSemen {
             }
         });
     }
-    
+
     public void cancelar() {
         semenSelecionado = null;
         limpar();
@@ -105,6 +106,7 @@ public class ControlSemen {
                 JOptionPane.showMessageDialog(null, "Editado com sucesso!");
                 semenSelecionado = null;
                 limpar();
+                carregarSemens();
                 fCadSemen.setVisible(false);
                 fConsSemen.setVisible(true);
             } else {
@@ -124,14 +126,16 @@ public class ControlSemen {
             modelSemen.InserirSemen(s);
         }
     }
-    
+
     public void removerDose() {
         int linhaSelecionada = fConsSemen.tbSemen.getSelectedRow();
         if (linhaSelecionada >= 0) {
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo remover doses?") == 0) {
                 Semen s = modelSemen.getSemen(linhaSelecionada);
                 s.removerDoses(Integer.parseInt(fConsSemen.tfQuantidade.getText()));
-                daoSemen.editar(s);
+                if (daoSemen.editar(s)) {
+                    carregarSemens();
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada!");
@@ -144,7 +148,9 @@ public class ControlSemen {
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo adicionar doses?") == 0) {
                 Semen s = modelSemen.getSemen(linhaSelecionada);
                 s.addDoses(Integer.parseInt(fConsSemen.tfQuantidade.getText()));
-                daoSemen.editar(s);
+                if (daoSemen.editar(s)) {
+                    carregarSemens();
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada!");
@@ -175,7 +181,7 @@ public class ControlSemen {
                 semenSelecionado = modelSemen.getSemen(linhaSelecionada);
                 fCadSemen.tfDoses.setText(String.valueOf(semenSelecionado.getDoses()));
                 fCadSemen.tfPote.setText(String.valueOf(semenSelecionado.getPote()));
-                fCadSemen.tfTouro.setText(semenSelecionado.getReprodutor());
+                fCadSemen.tfTouro.setText(semenSelecionado.getTouro());
                 fConsSemen.setVisible(false);
                 fCadSemen.setVisible(true);
             }

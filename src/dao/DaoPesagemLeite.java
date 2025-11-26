@@ -48,7 +48,7 @@ public class DaoPesagemLeite extends Dao {
         }
     }
 
-    public List<PesagemLeite> listar() {
-        return em.createQuery("select p from pesoLeite p").getResultList();
-    }
+        public List<PesagemLeite> listar() {
+            return em.createQuery("select p from PesagemLeite p").getResultList();
+        }
 }

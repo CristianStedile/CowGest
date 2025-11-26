@@ -49,9 +49,9 @@ public class DaoSemen extends Dao {
         }
     }
     
-    public Semen selecionar(String nome) {
+    public Semen selecionar(String touro) {
         try {
-            return (Semen) em.createQuery("select s from Semen s where s.reprodutor = :nome").setParameter("nome", nome).getSingleResult();
+            return (Semen) em.createQuery("select s from Semen s where s.touro = :touro").setParameter("touro", touro).getSingleResult();
         } catch (NoResultException n) {
             return null;
         }

@@ -6,6 +6,6 @@ import javax.persistence.Persistence;
 
 public class Dao {
 
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("SoftwareLeitePU");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("CowGestPU");
     EntityManager em = emf.createEntityManager();
 }
