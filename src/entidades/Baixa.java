@@ -7,32 +7,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "animalmedicacao")
-public class AnimalMedicacao implements Serializable {
+@Table(name = "baixa")
+public class Baixa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private LocalDate data;
-    @ManyToOne
+    private String motivo;
+    @OneToOne
     @JoinColumn(name = "id_animal")
     private Animal animal;
-    @ManyToOne
-    @JoinColumn(name = "id_medicacao")
-    private Medicacao medicacao;
 
-    public AnimalMedicacao() {
+    public Baixa() {
 
     }
 
-    public AnimalMedicacao(LocalDate data, Animal animal, Medicacao medicacao) {
+    public Baixa(LocalDate data, String motivo, Animal animal) {
         this.data = data;
+        this.motivo = motivo;
         this.animal = animal;
-        this.medicacao = medicacao;
     }
 
     public LocalDate getData() {
@@ -45,6 +43,19 @@ public class AnimalMedicacao implements Serializable {
             System.out.println("Sucesso ao setar data");
         } else {
             System.out.println("Erro ao setar data");
+        }
+    }
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        if (!motivo.equals("")) {
+            this.motivo = motivo;
+            System.out.println("Sucesso ao setar motivo");
+        } else {
+            System.out.println("Erro ao setar animal");
         }
     }
 
@@ -61,22 +72,9 @@ public class AnimalMedicacao implements Serializable {
         }
     }
 
-    public Medicacao getMedicacao() {
-        return medicacao;
-    }
-
-    public void setMedicacao(Medicacao medicacao) {
-        if (medicacao != null) {
-            this.medicacao = medicacao;
-            System.out.println("Sucesso ao setar animal");
-        } else {
-            System.out.println("Erro ao setar animal");
-        }
-    }
-
     @Override
     public String toString() {
-        return "aplicacaoMedicacao{" + "id=" + id + ", data=" + data + ", animal=" + animal + ", medicacao=" + medicacao + '}';
+        return "Baixas{" + "id=" + id + ", data=" + data + ", motivo=" + motivo + ", animal=" + animal + '}';
     }
 
 }

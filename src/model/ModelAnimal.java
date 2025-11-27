@@ -42,9 +42,6 @@ public class ModelAnimal extends AbstractTableModel {
             case 3: {
                 return "Sexo";
             }
-            case 4: {
-                return "Estado";
-            }
         }
         return "";
     }
@@ -64,9 +61,6 @@ public class ModelAnimal extends AbstractTableModel {
             }
             case 3: {
                 return " " + a.getSexo();
-            }
-            case 4: {
-                return a.getEstado();
             }
         }
         return null;

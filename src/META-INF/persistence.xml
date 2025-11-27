@@ -4,13 +4,13 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entidades.Animal</class>
     <class>entidades.AnimalMedicacao</class>
-    <class>entidades.Baixas</class>
     <class>entidades.Inseminacao</class>
     <class>entidades.LeiteVendido</class>
     <class>entidades.Medicacao</class>
     <class>entidades.Pasto</class>
     <class>entidades.Semen</class>
     <class>entidades.PesagemLeite</class>
+    <class>entidades.Baixa</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cowgest?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="Cristian"/>

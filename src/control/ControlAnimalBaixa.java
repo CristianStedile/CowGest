@@ -1,9 +1,9 @@
 package control;
 
 import dao.DaoAnimal;
-import dao.DaoBaixas;
+import dao.DaoBaixa;
 import entidades.Animal;
-import entidades.Baixas;
+import entidades.Baixa;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.ModelAnimalBaixa;
@@ -14,9 +14,9 @@ public class ControlAnimalBaixa {
 
     private FCadBaixa fCadBaixa;
     private DaoAnimal daoAnimal;
-    private DaoBaixas daoBaixa;
+    private DaoBaixa daoBaixa;
     private FConsAnimalBaixa fConsAnimal;
-    private Baixas baixaSelecionada;
+    private Baixa baixaSelecionada;
     private ModelAnimalBaixa modelAnimal;
 
     public ControlAnimalBaixa() {
@@ -24,7 +24,7 @@ public class ControlAnimalBaixa {
         this.fConsAnimal = new FConsAnimalBaixa(null, true);
         this.modelAnimal = new ModelAnimalBaixa();
         daoAnimal = new DaoAnimal();
-        daoBaixa = new DaoBaixas();
+        daoBaixa = new DaoBaixa();
         inicializarComponentes();
     }
 
@@ -60,7 +60,7 @@ public class ControlAnimalBaixa {
 
     public void carregarAnimal() {
         modelAnimal.Limpar();
-        for (Baixas b : daoBaixa.listar()) {
+        for (Baixa b : daoBaixa.listar()) {
             modelAnimal.InserirBaixa(b);
         }
     }

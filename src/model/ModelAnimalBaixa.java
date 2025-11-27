@@ -1,13 +1,13 @@
 package model;
 
-import entidades.Baixas;
+import entidades.Baixa;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ModelAnimalBaixa extends AbstractTableModel {
 
-    private List<Baixas> baixas = new ArrayList<>();
+    private List<Baixa> baixas = new ArrayList<>();
 
     @Override
     public int getRowCount() {
@@ -37,7 +37,7 @@ public class ModelAnimalBaixa extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Baixas b = baixas.get(rowIndex);
+        Baixa b = baixas.get(rowIndex);
         switch (columnIndex) {
             case 0: {
                 return " " + b.getAnimal().getNumero();
@@ -56,7 +56,7 @@ public class ModelAnimalBaixa extends AbstractTableModel {
         baixas.clear();
     }
 
-    public Baixas getBaixa(int rowIndex) {
+    public Baixa getBaixa(int rowIndex) {
         return baixas.get(rowIndex);
     }
 
@@ -65,7 +65,7 @@ public class ModelAnimalBaixa extends AbstractTableModel {
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
 
-    public void InserirBaixa(Baixas b) {
+    public void InserirBaixa(Baixa b) {
         baixas.add(b);
         fireTableRowsInserted(baixas.size() - 1, baixas.size() - 1);
     }

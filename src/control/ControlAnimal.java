@@ -1,9 +1,9 @@
 package control;
 
 import dao.DaoAnimal;
-import dao.DaoBaixas;
+import dao.DaoBaixa;
 import entidades.Animal;
-import entidades.Baixas;
+import entidades.Baixa;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -18,7 +18,7 @@ public class ControlAnimal {
     private FCadAnimal fCadAnimal;
     private DaoAnimal daoAnimal;
     private FConsAnimal fConsAnimal;
-    private DaoBaixas daoBaixas;
+    private DaoBaixa daoBaixas;
     private FCadBaixa fCadBaixa;
     private Animal animalSelecionado;
     private ModelAnimal modelAnimal;
@@ -30,7 +30,7 @@ public class ControlAnimal {
         this.fConsAnimal = new FConsAnimal(null, true);
         this.modelAnimal = new ModelAnimal();
         this.fCadBaixa = new FCadBaixa(null, true);
-        daoBaixas = new DaoBaixas();
+        daoBaixas = new DaoBaixa();
         daoAnimal = new DaoAnimal();
         inicializarComponentes();
     }
@@ -125,7 +125,7 @@ public class ControlAnimal {
             Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadBaixa.animais.getModel().getSelectedItem()));
             String motivo = fCadBaixa.BaixaMotivo.getText();
             LocalDate data = controlPrincipal.converterDataBanco(fCadBaixa.BaixaData.getText());
-            Baixas b = new Baixas(data, motivo, a);
+            Baixa b = new Baixa(data, motivo, a);
             if (daoBaixas.inserir(b)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                 limpar2();

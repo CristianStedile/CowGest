@@ -86,7 +86,7 @@ public class ControlAnimalMedicacao {
             LocalDate data = controlPrincipal.converterDataBanco(fCadAplicacaoMedicacao.AplicacaoData.getText());
             Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadAplicacaoMedicacao.AplicacaoNumero.getModel().getSelectedItem()));
             Medicacao m = daoMedicacao.selecionar((String) fCadAplicacaoMedicacao.AplicacaoNome.getModel().getSelectedItem());
-            AnimalMedicacao am = new AnimalMedicacao(0, data, a, m);
+            AnimalMedicacao am = new AnimalMedicacao(data, a, m);
             if (daoAplicacaoMedicacao.inserir(am)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                 limpar();

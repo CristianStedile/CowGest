@@ -21,7 +21,6 @@ public class Animal implements Serializable {
     private LocalDate dataNascimento;
     private String raca;
     private String sexo;
-    private String estado;
     private boolean baixado;
 
     public Animal() {
@@ -33,7 +32,6 @@ public class Animal implements Serializable {
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
         this.numero = numero;
-        this.estado = "Vazia";
         this.baixado = false;
     }
 
@@ -78,22 +76,9 @@ public class Animal implements Serializable {
         }
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        if (estado.equals("Vazia") || estado.equals("Inseminada") || estado.equals("Recém parida") || estado.equals("Prenha")) {
-            this.estado = estado;
-            System.out.println("Sucesso ao setar estado");
-        } else {
-            System.out.println("Erro ao setar estado");
-        }
-    }
-
     @Override
     public String toString() {
-        return "Animal{" + "id=" + id + ", numero=" + numero + ", dataNascimento=" + dataNascimento + ", raca=" + raca + ", sexo=" + sexo + ", estado=" + estado + ", baixado=" + baixado + '}';
+        return "Animal{" + "id=" + id + ", numero=" + numero + ", dataNascimento=" + dataNascimento + ", raca=" + raca + ", sexo=" + sexo + ", baixado=" + baixado + '}';
     }
 
 }
