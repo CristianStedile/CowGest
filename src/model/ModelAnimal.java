@@ -24,7 +24,7 @@ public class ModelAnimal extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -34,12 +34,15 @@ public class ModelAnimal extends AbstractTableModel {
                 return "Número do Animal";
             }
             case 1: {
-                return "Data de Nascimento";
+                return "Idade";
             }
             case 2: {
-                return "Raça";
+                return "Data de Nascimento";
             }
             case 3: {
+                return "Raça";
+            }
+            case 4: {
                 return "Sexo";
             }
         }
@@ -54,12 +57,15 @@ public class ModelAnimal extends AbstractTableModel {
                 return " " + a.getNumero();
             }
             case 1: {
-                return " " + converterDataBr(a.getDataNascimento());
+                return " " + a.getIdade();
             }
             case 2: {
-                return " " + a.getRaca();
+                return " " + converterDataBr(a.getDataNascimento());
             }
             case 3: {
+                return " " + a.getRaca();
+            }
+            case 4: {
                 return " " + a.getSexo();
             }
         }

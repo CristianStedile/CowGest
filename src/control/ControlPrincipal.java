@@ -144,7 +144,7 @@ public class ControlPrincipal {
         });
 
     }
-
+    
     public LocalDate converterDataBanco(String data) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataFormatada = LocalDate.parse(data, formatter);

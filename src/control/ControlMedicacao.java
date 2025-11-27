@@ -1,6 +1,7 @@
 package control;
 
 import dao.DaoMedicacao;
+import entidades.Animal;
 import entidades.Medicacao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -136,7 +136,7 @@ public class ControlPasto {
         limpar();
         fCadPasto.setVisible(false);
     }
-
+    
     public void limpar() {
         fCadPasto.tfNome.setText("");
         fCadPasto.tfTipoGrama.setText("");

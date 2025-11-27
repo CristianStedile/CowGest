@@ -2,6 +2,7 @@ package entidades;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -53,6 +54,13 @@ public class Animal implements Serializable {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public String getIdade() {
+        Period periodo = Period.between(this.dataNascimento, LocalDate.now());
+        int anos = periodo.getYears();
+        int meses = periodo.getMonths();
+        return anos + " anos e " + meses + " meses";
     }
 
     public LocalDate getDataNascimento() {
