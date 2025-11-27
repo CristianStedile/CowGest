@@ -174,7 +174,7 @@ public class ControlInseminacao {
     public void carregarAnimais() {
         fCadInseminacao.cbAnimais.removeAllItems();
         for (Animal a : daoAnimal.listar()) {
-            fCadInseminacao.cbAnimais.addItem(Integer.toString(a.getNumero()));
+            fCadInseminacao.cbAnimais.addItem(a.getNumero());
         }
     }
 

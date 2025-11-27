@@ -16,33 +16,28 @@ public class Animal implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int numero;
+    private String numero;
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
     private String raca;
     private String sexo;
     private String estado;
     private boolean baixado;
-    @Column(name = "repeticoes_cio")
-    private int repeticoesCio;
-    private int carencia;
 
     public Animal() {
 
     }
 
-    public Animal(int numero, LocalDate dataNascimento, String raca, String sexo) {
+    public Animal(String numero, LocalDate dataNascimento, String raca, String sexo) {
         this.raca = raca;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
         this.numero = numero;
         this.estado = "Vazia";
-        this.carencia = 0;
-        this.repeticoesCio = 0;
         this.baixado = false;
     }
-    
-    public void setBaixado(){
+
+    public void setBaixado() {
         this.baixado = true;
     }
 
@@ -70,11 +65,11 @@ public class Animal implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         if (String.valueOf(numero).length() == 6) {
             this.numero = numero;
             System.out.println("Sucesso ao setar número");
@@ -96,35 +91,9 @@ public class Animal implements Serializable {
         }
     }
 
-    public int getRepeticoesCio() {
-        return repeticoesCio;
-    }
-
-    public void setRepeticoesCio(int repeticoesCio) {
-        if (repeticoesCio >= 0) {
-            this.repeticoesCio = repeticoesCio;
-            System.out.println("Sucesso ao setar repetições de cio");
-        } else {
-            System.out.println("Erro ao setar repetições de cio");
-        }
-    }
-
-    public int getCarencia() {
-        return carencia;
-    }
-
-    public void setCarencia(int carencia) {
-        if (carencia >= 0) {
-            this.carencia = carencia;
-            System.out.println("Sucesso ao setar carência");
-        } else {
-            System.out.println("Erro ao setar carência");
-        }
-    }
-
     @Override
     public String toString() {
-        return "Animal{" + "id=" + id + ", numero=" + numero + ", dataNascimento=" + dataNascimento + ", raca=" + raca + ", sexo=" + sexo + ", estado=" + estado + ", repeticoesCio=" + repeticoesCio + ", carencia=" + carencia + '}';
+        return "Animal{" + "id=" + id + ", numero=" + numero + ", dataNascimento=" + dataNascimento + ", raca=" + raca + ", sexo=" + sexo + ", estado=" + estado + ", baixado=" + baixado + '}';
     }
 
 }

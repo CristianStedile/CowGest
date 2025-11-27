@@ -115,7 +115,7 @@ public class ControlAnimal {
     public void carregarAnimais() {
         fCadBaixa.animais.removeAllItems();
         for (Animal a : daoAnimal.listar()) {
-            fCadBaixa.animais.addItem(Integer.toString(a.getNumero()));
+            fCadBaixa.animais.addItem(a.getNumero());
         }
     }
 
@@ -142,7 +142,7 @@ public class ControlAnimal {
 
     public void gravarAnimal() {
         if (animalSelecionado == null) {
-            int numero = Integer.parseInt(fCadAnimal.AnimalNumero.getText());
+            String numero = fCadAnimal.AnimalNumero.getText();
             String dataNasc = fCadAnimal.AnimalNasc.getText();
             String raca = fCadAnimal.AnimalRaca.getText();
             String sexo = fCadAnimal.AnimalSexo.getText();
@@ -155,7 +155,7 @@ public class ControlAnimal {
                 JOptionPane.showMessageDialog(null, "Erro ao inserir!");
             }
         } else {
-            animalSelecionado.setNumero(Integer.parseInt(fCadAnimal.AnimalNumero.getText()));
+            animalSelecionado.setNumero(fCadAnimal.AnimalNumero.getText());
             animalSelecionado.setDataNascimento(controlPrincipal.converterDataBanco(fCadAnimal.AnimalNasc.getText()));
             animalSelecionado.setRaca(fCadAnimal.AnimalRaca.getText());
             animalSelecionado.setSexo(fCadAnimal.AnimalSexo.getText());
@@ -205,7 +205,7 @@ public class ControlAnimal {
         if (linhaSelecionada >= 0) {
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo editar o animal?") == 0) {
                 animalSelecionado = modelAnimal.getAnimal(linhaSelecionada);
-                fCadAnimal.AnimalNumero.setText(Integer.toString((animalSelecionado.getNumero())));
+                fCadAnimal.AnimalNumero.setText((animalSelecionado.getNumero()));
                 fCadAnimal.AnimalNasc.setText(controlPrincipal.converterDataBr(animalSelecionado.getDataNascimento()));
                 fCadAnimal.AnimalRaca.setText(animalSelecionado.getRaca());
                 fCadAnimal.AnimalSexo.setText(animalSelecionado.getSexo());

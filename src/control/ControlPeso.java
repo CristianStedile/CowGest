@@ -157,7 +157,7 @@ public class ControlPeso {
     public void carregarAnimais(){
         fCadPesoLeite.animais.removeAllItems();
         for(Animal a : daoAnimal.listar()){
-            fCadPesoLeite.animais.addItem(Integer.toString(a.getNumero()));
+            fCadPesoLeite.animais.addItem(a.getNumero());
         }
     }
 }

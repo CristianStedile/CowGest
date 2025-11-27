@@ -156,7 +156,7 @@ public class ControlAnimalMedicacao {
     public void carregarAnimais() {
         fCadAplicacaoMedicacao.AplicacaoNumero.removeAllItems();
         for (Animal a : daoAnimal.listar()) {
-            fCadAplicacaoMedicacao.AplicacaoNumero.addItem(Integer.toString(a.getNumero()));
+            fCadAplicacaoMedicacao.AplicacaoNumero.addItem(a.getNumero());
         }
     }
 
