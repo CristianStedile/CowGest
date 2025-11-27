@@ -13,11 +13,11 @@ public class FCadPesoLeite extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        PesoData = new javax.swing.JFormattedTextField();
+        tfData = new javax.swing.JFormattedTextField();
         PesoOK = new javax.swing.JButton();
         PesoCancelar = new javax.swing.JButton();
-        PesoPesagem = new javax.swing.JFormattedTextField();
-        animais = new javax.swing.JComboBox<>();
+        tfPesagem = new javax.swing.JFormattedTextField();
+        cbAnimais = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Pesagem de Leite");
@@ -39,11 +39,11 @@ public class FCadPesoLeite extends javax.swing.JDialog {
         jLabel4.setText("Número do animal:");
 
         try {
-            PesoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        PesoData.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        tfData.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         PesoOK.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         PesoOK.setText("OK");
@@ -51,10 +51,10 @@ public class FCadPesoLeite extends javax.swing.JDialog {
         PesoCancelar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         PesoCancelar.setText("CANCELAR");
 
-        PesoPesagem.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##.##"))));
-        PesoPesagem.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        tfPesagem.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##.##"))));
+        tfPesagem.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
-        animais.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        cbAnimais.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,10 +71,10 @@ public class FCadPesoLeite extends javax.swing.JDialog {
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(PesoData)
-                            .addComponent(PesoPesagem)
+                            .addComponent(tfData)
+                            .addComponent(tfPesagem)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(animais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbAnimais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(82, 82, 82))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(PesoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -90,15 +90,15 @@ public class FCadPesoLeite extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(animais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbAnimais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(PesoPesagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfPesagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(PesoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PesoOK)
@@ -112,13 +112,13 @@ public class FCadPesoLeite extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton PesoCancelar;
-    public javax.swing.JFormattedTextField PesoData;
     public javax.swing.JButton PesoOK;
-    public javax.swing.JFormattedTextField PesoPesagem;
-    public javax.swing.JComboBox<String> animais;
+    public javax.swing.JComboBox<String> cbAnimais;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    public javax.swing.JFormattedTextField tfData;
+    public javax.swing.JFormattedTextField tfPesagem;
     // End of variables declaration//GEN-END:variables
 }

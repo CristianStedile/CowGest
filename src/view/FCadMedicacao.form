@@ -43,8 +43,8 @@
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="MedicacaoDosagem" pref="386" max="32767" attributes="0"/>
-                          <Component id="MedicacaoNome" max="32767" attributes="0"/>
+                          <Component id="tfNome" pref="386" max="32767" attributes="0"/>
+                          <Component id="tfDosagem" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -58,10 +58,10 @@
                           <Component id="sla" max="32767" attributes="0"/>
                           <Component id="jLabel5" pref="196" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="MedicacaoTipo" max="32767" attributes="0"/>
-                          <Component id="MedicacaoDescricao" max="32767" attributes="0"/>
+                          <Component id="tfTipo" max="32767" attributes="0"/>
+                          <Component id="tfDescricao" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -77,22 +77,22 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="MedicacaoNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfNome" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="MedicacaoDosagem" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfDosagem" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="sla" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="MedicacaoTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfTipo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="MedicacaoDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -153,7 +153,7 @@
         <Property name="text" type="java.lang.String" value="Dosagem da Medica&#xe7;&#xe3;o:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="MedicacaoNome">
+    <Component class="javax.swing.JTextField" name="tfNome">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="12" style="1"/>
@@ -163,7 +163,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="MedicacaoDosagem">
+    <Component class="javax.swing.JTextField" name="tfDosagem">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="12" style="1"/>
@@ -194,7 +194,7 @@
         <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="MedicacaoTipo">
+    <Component class="javax.swing.JTextField" name="tfTipo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="12" style="1"/>
@@ -204,7 +204,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="MedicacaoDescricao">
+    <Component class="javax.swing.JTextField" name="tfDescricao">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="12" style="1"/>

@@ -106,23 +106,23 @@ public class ControlAnimal {
     }
 
     public void limpar() {
-        fCadAnimal.AnimalNumero.setText("");
-        fCadAnimal.AnimalNasc.setText("");
-        fCadAnimal.AnimalRaca.setText("");
-        fCadAnimal.AnimalSexo.setText("");
+        fCadAnimal.tfNumero.setText("");
+        fCadAnimal.tfDataNasc.setText("");
+        fCadAnimal.tfRaca.setText("");
+        fCadAnimal.tfSexo.setText("");
     }
 
     public void carregarAnimais() {
-        fCadBaixa.animais.removeAllItems();
+        fCadBaixa.cbAnimais.removeAllItems();
         for (Animal a : daoAnimal.listar()) {
-            fCadBaixa.animais.addItem(a.getNumero());
+            fCadBaixa.cbAnimais.addItem(a.getNumero());
         }
     }
 
     public void darBaixa() {
         int linhaSelecionada = fConsAnimal.AnimalTabela.getSelectedRow();
         if (JOptionPane.showConfirmDialog(null, "Deseja mesmo dar baixa no animal?") == 0) {
-            Animal a = daoAnimal.selecionar((String) fCadBaixa.animais.getModel().getSelectedItem());
+            Animal a = daoAnimal.selecionar((String) fCadBaixa.cbAnimais.getModel().getSelectedItem());
             String motivo = fCadBaixa.BaixaMotivo.getText();
             LocalDate data = controlPrincipal.converterDataBanco(fCadBaixa.BaixaData.getText());
             Baixa b = new Baixa(data, motivo, a);
@@ -142,10 +142,10 @@ public class ControlAnimal {
 
     public void gravarAnimal() {
         if (animalSelecionado == null) {
-            String numero = fCadAnimal.AnimalNumero.getText();
-            String dataNasc = fCadAnimal.AnimalNasc.getText();
-            String raca = fCadAnimal.AnimalRaca.getText();
-            String sexo = fCadAnimal.AnimalSexo.getText();
+            String numero = fCadAnimal.tfNumero.getText();
+            String dataNasc = fCadAnimal.tfDataNasc.getText();
+            String raca = fCadAnimal.tfRaca.getText();
+            String sexo = fCadAnimal.tfSexo.getText();
             LocalDate dataNascConvertida = controlPrincipal.converterDataBanco(dataNasc);
             Animal a = new Animal(numero, dataNascConvertida, raca, sexo);
             if (daoAnimal.inserir(a)) {
@@ -155,10 +155,10 @@ public class ControlAnimal {
                 JOptionPane.showMessageDialog(null, "Erro ao inserir!");
             }
         } else {
-            animalSelecionado.setNumero(fCadAnimal.AnimalNumero.getText());
-            animalSelecionado.setDataNascimento(controlPrincipal.converterDataBanco(fCadAnimal.AnimalNasc.getText()));
-            animalSelecionado.setRaca(fCadAnimal.AnimalRaca.getText());
-            animalSelecionado.setSexo(fCadAnimal.AnimalSexo.getText());
+            animalSelecionado.setNumero(fCadAnimal.tfNumero.getText());
+            animalSelecionado.setDataNascimento(controlPrincipal.converterDataBanco(fCadAnimal.tfDataNasc.getText()));
+            animalSelecionado.setRaca(fCadAnimal.tfRaca.getText());
+            animalSelecionado.setSexo(fCadAnimal.tfSexo.getText());
             if (daoAnimal.editar(animalSelecionado)) {
                 JOptionPane.showMessageDialog(null, "Editado com sucesso!");
                 animalSelecionado = null;
@@ -205,10 +205,10 @@ public class ControlAnimal {
         if (linhaSelecionada >= 0) {
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo editar o animal?") == 0) {
                 animalSelecionado = modelAnimal.getAnimal(linhaSelecionada);
-                fCadAnimal.AnimalNumero.setText((animalSelecionado.getNumero()));
-                fCadAnimal.AnimalNasc.setText(controlPrincipal.converterDataBr(animalSelecionado.getDataNascimento()));
-                fCadAnimal.AnimalRaca.setText(animalSelecionado.getRaca());
-                fCadAnimal.AnimalSexo.setText(animalSelecionado.getSexo());
+                fCadAnimal.tfNumero.setText((animalSelecionado.getNumero()));
+                fCadAnimal.tfDataNasc.setText(controlPrincipal.converterDataBr(animalSelecionado.getDataNascimento()));
+                fCadAnimal.tfRaca.setText(animalSelecionado.getRaca());
+                fCadAnimal.tfSexo.setText(animalSelecionado.getSexo());
                 fConsAnimal.setVisible(false);
                 fCadAnimal.setVisible(true);
             }

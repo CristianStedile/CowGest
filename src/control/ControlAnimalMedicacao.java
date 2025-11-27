@@ -71,7 +71,7 @@ public class ControlAnimalMedicacao {
     }
 
     public void limpar() {
-        fCadAplicacaoMedicacao.AplicacaoData.setText("");
+        fCadAplicacaoMedicacao.tfData.setText("");
     }
 
     public void cadastrarAplicacao() {
@@ -83,9 +83,9 @@ public class ControlAnimalMedicacao {
 
     public void gravarAplicacao() {
         if (aplicacaoSelecionada == null) {
-            LocalDate data = controlPrincipal.converterDataBanco(fCadAplicacaoMedicacao.AplicacaoData.getText());
-            Animal a = daoAnimal.selecionar((String) fCadAplicacaoMedicacao.AplicacaoNumero.getModel().getSelectedItem());
-            Medicacao m = daoMedicacao.selecionar((String) fCadAplicacaoMedicacao.AplicacaoNome.getModel().getSelectedItem());
+            LocalDate data = controlPrincipal.converterDataBanco(fCadAplicacaoMedicacao.tfData.getText());
+            Animal a = daoAnimal.selecionar((String) fCadAplicacaoMedicacao.cbAnimais.getModel().getSelectedItem());
+            Medicacao m = daoMedicacao.selecionar((String) fCadAplicacaoMedicacao.cbMedicacoes.getModel().getSelectedItem());
             AnimalMedicacao am = new AnimalMedicacao(data, a, m);
             if (daoAplicacaoMedicacao.inserir(am)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
@@ -94,9 +94,9 @@ public class ControlAnimalMedicacao {
                 JOptionPane.showMessageDialog(null, "Erro ao inserir!");
             }
         } else {
-            aplicacaoSelecionada.setAnimal((Animal) fCadAplicacaoMedicacao.AplicacaoNumero.getModel().getSelectedItem());
-            aplicacaoSelecionada.setMedicacao((Medicacao) fCadAplicacaoMedicacao.AplicacaoNome.getModel().getSelectedItem());
-            aplicacaoSelecionada.setData(controlPrincipal.converterDataBanco(fCadAplicacaoMedicacao.AplicacaoData.getText()));
+            aplicacaoSelecionada.setAnimal((Animal) fCadAplicacaoMedicacao.cbAnimais.getModel().getSelectedItem());
+            aplicacaoSelecionada.setMedicacao((Medicacao) fCadAplicacaoMedicacao.cbMedicacoes.getModel().getSelectedItem());
+            aplicacaoSelecionada.setData(controlPrincipal.converterDataBanco(fCadAplicacaoMedicacao.tfData.getText()));
             if (daoAplicacaoMedicacao.editar(aplicacaoSelecionada)) {
                 JOptionPane.showMessageDialog(null, "Editado com sucesso!");
                 limpar();
@@ -154,16 +154,16 @@ public class ControlAnimalMedicacao {
     }
 
     public void carregarAnimais() {
-        fCadAplicacaoMedicacao.AplicacaoNumero.removeAllItems();
+        fCadAplicacaoMedicacao.cbAnimais.removeAllItems();
         for (Animal a : daoAnimal.listar()) {
-            fCadAplicacaoMedicacao.AplicacaoNumero.addItem(a.getNumero());
+            fCadAplicacaoMedicacao.cbAnimais.addItem(a.getNumero());
         }
     }
 
     public void carregarMedicacoes() {
-        fCadAplicacaoMedicacao.AplicacaoNome.removeAllItems();
+        fCadAplicacaoMedicacao.cbMedicacoes.removeAllItems();
         for (Medicacao m : daoMedicacao.listar()) {
-            fCadAplicacaoMedicacao.AplicacaoNome.addItem(m.getNome());
+            fCadAplicacaoMedicacao.cbMedicacoes.addItem(m.getNome());
         }
     }
 }

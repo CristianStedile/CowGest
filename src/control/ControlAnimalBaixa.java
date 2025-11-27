@@ -66,9 +66,9 @@ public class ControlAnimalBaixa {
     }
     
     public void carregarAnimais(){
-        fCadBaixa.animais.removeAllItems();
+        fCadBaixa.cbAnimais.removeAllItems();
         for(Animal a : daoAnimal.listar()){
-            fCadBaixa.animais.addItem(a.getNumero());
+            fCadBaixa.cbAnimais.addItem(a.getNumero());
         }
     }
 

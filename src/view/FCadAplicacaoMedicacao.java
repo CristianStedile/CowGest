@@ -33,9 +33,9 @@ public class FCadAplicacaoMedicacao extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        AplicacaoData = new javax.swing.JFormattedTextField();
-        AplicacaoNumero = new javax.swing.JComboBox<>();
-        AplicacaoNome = new javax.swing.JComboBox<>();
+        tfData = new javax.swing.JFormattedTextField();
+        cbAnimais = new javax.swing.JComboBox<>();
+        cbMedicacoes = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Aplicação de Medicação");
@@ -68,15 +68,15 @@ public class FCadAplicacaoMedicacao extends javax.swing.JDialog {
         jLabel4.setText("Data De Aplicação");
 
         try {
-            AplicacaoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        AplicacaoData.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        tfData.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
-        AplicacaoNumero.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cbAnimais.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        AplicacaoNome.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        cbMedicacoes.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,9 +97,9 @@ public class FCadAplicacaoMedicacao extends javax.swing.JDialog {
                                 .addComponent(AMedicacaoCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(AMedicacaoOK))
-                            .addComponent(AplicacaoData)
-                            .addComponent(AplicacaoNome, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(AplicacaoNumero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(tfData)
+                            .addComponent(cbMedicacoes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbAnimais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -110,15 +110,15 @@ public class FCadAplicacaoMedicacao extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(AplicacaoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbAnimais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(AplicacaoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbMedicacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(AplicacaoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AMedicacaoOK)
@@ -137,12 +137,12 @@ public class FCadAplicacaoMedicacao extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton AMedicacaoCancelar;
     public javax.swing.JButton AMedicacaoOK;
-    public javax.swing.JFormattedTextField AplicacaoData;
-    public javax.swing.JComboBox<String> AplicacaoNome;
-    public javax.swing.JComboBox<String> AplicacaoNumero;
+    public javax.swing.JComboBox<String> cbAnimais;
+    public javax.swing.JComboBox<String> cbMedicacoes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    public javax.swing.JFormattedTextField tfData;
     // End of variables declaration//GEN-END:variables
 }

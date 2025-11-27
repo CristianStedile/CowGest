@@ -15,12 +15,12 @@ public class FCadAnimal extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        AnimalNumero = new javax.swing.JFormattedTextField();
-        AnimalRaca = new javax.swing.JTextField();
-        AnimalSexo = new javax.swing.JTextField();
+        tfNumero = new javax.swing.JFormattedTextField();
+        tfRaca = new javax.swing.JTextField();
+        tfSexo = new javax.swing.JTextField();
         AnimalOK = new javax.swing.JButton();
         AnimalCancelar = new javax.swing.JButton();
-        AnimalNasc = new javax.swing.JFormattedTextField();
+        tfDataNasc = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Animal");
@@ -46,15 +46,15 @@ public class FCadAnimal extends javax.swing.JDialog {
         jLabel5.setText("Sexo:");
 
         try {
-            AnimalNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######")));
+            tfNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        AnimalNumero.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        tfNumero.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
-        AnimalRaca.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        tfRaca.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
-        AnimalSexo.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        tfSexo.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         AnimalOK.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         AnimalOK.setText("OK");
@@ -68,11 +68,11 @@ public class FCadAnimal extends javax.swing.JDialog {
         AnimalCancelar.setText("CANCELAR");
 
         try {
-            AnimalNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        AnimalNasc.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        tfDataNasc.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,10 +94,10 @@ public class FCadAnimal extends javax.swing.JDialog {
                         .addComponent(AnimalOK))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(AnimalNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(AnimalRaca)
-                            .addComponent(AnimalSexo)
-                            .addComponent(AnimalNasc))
+                            .addComponent(tfNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(tfRaca)
+                            .addComponent(tfSexo)
+                            .addComponent(tfDataNasc))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -109,19 +109,19 @@ public class FCadAnimal extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(AnimalNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(AnimalNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(AnimalRaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfRaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(AnimalSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AnimalOK)
@@ -139,15 +139,15 @@ public class FCadAnimal extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton AnimalCancelar;
-    public javax.swing.JFormattedTextField AnimalNasc;
-    public javax.swing.JFormattedTextField AnimalNumero;
     public javax.swing.JButton AnimalOK;
-    public javax.swing.JTextField AnimalRaca;
-    public javax.swing.JTextField AnimalSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    public javax.swing.JFormattedTextField tfDataNasc;
+    public javax.swing.JFormattedTextField tfNumero;
+    public javax.swing.JTextField tfRaca;
+    public javax.swing.JTextField tfSexo;
     // End of variables declaration//GEN-END:variables
 }

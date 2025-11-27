@@ -46,7 +46,7 @@
                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="animais" min="-2" pref="106" max="-2" attributes="0"/>
+                              <Component id="cbAnimais" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
                           </Group>
                           <Component id="BaixaData" max="32767" attributes="0"/>
@@ -66,7 +66,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="animais" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbAnimais" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -170,14 +170,14 @@
         <Property name="text" type="java.lang.String" value="Animal:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="animais">
+    <Component class="javax.swing.JComboBox" name="cbAnimais">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="animaisActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbAnimaisActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

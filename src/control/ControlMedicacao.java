@@ -68,18 +68,18 @@ public class ControlMedicacao {
     }
 
     public void limpar() {
-        fCadMedicacao.MedicacaoNome.setText("");
-        fCadMedicacao.MedicacaoDosagem.setText("");
-        fCadMedicacao.MedicacaoTipo.setText("");
-        fCadMedicacao.MedicacaoDescricao.setText("");
+        fCadMedicacao.tfNome.setText("");
+        fCadMedicacao.tfDosagem.setText("");
+        fCadMedicacao.tfTipo.setText("");
+        fCadMedicacao.tfDescricao.setText("");
     }
 
     public void gravarMedicacao() {
         if (medicacaoSelecionada == null) {
-            String nomeMedicacao = fCadMedicacao.MedicacaoNome.getText();
-            String dosagem = fCadMedicacao.MedicacaoDosagem.getText();
-            String tipo = fCadMedicacao.MedicacaoTipo.getText();
-            String descricao = fCadMedicacao.MedicacaoDescricao.getText();
+            String nomeMedicacao = fCadMedicacao.tfNome.getText();
+            String dosagem = fCadMedicacao.tfDosagem.getText();
+            String tipo = fCadMedicacao.tfTipo.getText();
+            String descricao = fCadMedicacao.tfDescricao.getText();
             Medicacao m = new Medicacao(nomeMedicacao, dosagem, tipo, descricao);
             if (daoMedicacao.inserir(m)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
@@ -88,9 +88,9 @@ public class ControlMedicacao {
                 JOptionPane.showMessageDialog(null, "Erro ao inserir!");
             }
         } else {
-            medicacaoSelecionada.setNome(fCadMedicacao.MedicacaoNome.getText());
-            medicacaoSelecionada.setDosagem(fCadMedicacao.MedicacaoDosagem.getText());
-            medicacaoSelecionada.setDescricao(fCadMedicacao.MedicacaoDescricao.getText());
+            medicacaoSelecionada.setNome(fCadMedicacao.tfNome.getText());
+            medicacaoSelecionada.setDosagem(fCadMedicacao.tfDosagem.getText());
+            medicacaoSelecionada.setDescricao(fCadMedicacao.tfDescricao.getText());
             medicacaoSelecionada.setTipo(fCadMedicacao.sla.getText());
             if (daoMedicacao.editar(medicacaoSelecionada)) {
                 medicacaoSelecionada = null;
@@ -108,10 +108,10 @@ public class ControlMedicacao {
         if (linhaSelecionada >= 0) {
             if (JOptionPane.showConfirmDialog(null, "Deseja mesmo editar a medicação?") == 0) {
                 medicacaoSelecionada = modelMedicacao.getMedicacao(linhaSelecionada);
-                fCadMedicacao.MedicacaoNome.setText(medicacaoSelecionada.getNome());
-                fCadMedicacao.MedicacaoDosagem.setText(medicacaoSelecionada.getDosagem());
+                fCadMedicacao.tfNome.setText(medicacaoSelecionada.getNome());
+                fCadMedicacao.tfDosagem.setText(medicacaoSelecionada.getDosagem());
                 fCadMedicacao.sla.setText(medicacaoSelecionada.getTipo());
-                fCadMedicacao.MedicacaoDescricao.setText(medicacaoSelecionada.getDescricao());
+                fCadMedicacao.tfDescricao.setText(medicacaoSelecionada.getDescricao());
                 fConsMedicacao.setVisible(false);
                 fCadMedicacao.setVisible(true);
             }

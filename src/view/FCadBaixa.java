@@ -35,7 +35,7 @@ public class FCadBaixa extends javax.swing.JDialog {
         BaixaMotivo = new javax.swing.JTextField();
         BaixaData = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
-        animais = new javax.swing.JComboBox<>();
+        cbAnimais = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Baixa");
@@ -72,9 +72,9 @@ public class FCadBaixa extends javax.swing.JDialog {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Animal:");
 
-        animais.addActionListener(new java.awt.event.ActionListener() {
+        cbAnimais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                animaisActionPerformed(evt);
+                cbAnimaisActionPerformed(evt);
             }
         });
 
@@ -100,7 +100,7 @@ public class FCadBaixa extends javax.swing.JDialog {
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(animais, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbAnimais, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(158, 158, 158))
                             .addComponent(BaixaData)
                             .addComponent(BaixaMotivo))))
@@ -114,7 +114,7 @@ public class FCadBaixa extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(animais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbAnimais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -134,16 +134,16 @@ public class FCadBaixa extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animaisActionPerformed
+    private void cbAnimaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAnimaisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_animaisActionPerformed
+    }//GEN-LAST:event_cbAnimaisActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BaixaCancelar;
     public javax.swing.JFormattedTextField BaixaData;
     public javax.swing.JTextField BaixaMotivo;
     public javax.swing.JButton BaixaOK;
-    public javax.swing.JComboBox<String> animais;
+    public javax.swing.JComboBox<String> cbAnimais;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
