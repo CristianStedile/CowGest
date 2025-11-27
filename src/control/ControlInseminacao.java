@@ -97,9 +97,10 @@ public class ControlInseminacao {
                     JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                     limpar();
                     for (Semen semen : daoSemen.listar()) {
-                        if (semen.getTouro().equals(s)) {
+                        if (semen.getTouro().equals(s.getTouro())) {
                             s.removerDoses(1);
                             daoSemen.editar(s);
+                            carregarSemens();
                         }
                     }
                 } else {
