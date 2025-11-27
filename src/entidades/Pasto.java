@@ -1,7 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,11 +20,11 @@ public class Pasto implements Serializable {
     @Column(name = "tipo_grama")
     private String tipoGrama;
     @Column(name = "ultima_rocada")
-    private Date ultimaRocada;
+    private LocalDate ultimaRocada;
     @Column(name = "ultima_sobsemeadura")
-    private Date ultimaSobSemadura;
+    private LocalDate ultimaSobSemadura;
     @Column(name = "ultima_adubacao")
-    private Date ultimaAdubacao;
+    private LocalDate ultimaAdubacao;
 
     public Pasto() {
 
@@ -64,11 +64,11 @@ public class Pasto implements Serializable {
         }
     }
 
-    public Date getUltimaRocada() {
+    public LocalDate getUltimaRocada() {
         return ultimaRocada;
     }
 
-    public void setUltimaRocada(Date ultimaRocada) {
+    public void setUltimaRocada(LocalDate ultimaRocada) {
         if (ultimaRocada != null) {
             this.ultimaRocada = ultimaRocada;
             System.out.println("Sucesso ao setar última roçada");
@@ -77,11 +77,11 @@ public class Pasto implements Serializable {
         }
     }
 
-    public Date getUltimaSobSemadura() {
+    public LocalDate getUltimaSobSemadura() {
         return ultimaSobSemadura;
     }
 
-    public void setUltimaSobSemadura(Date ultimaSobSemadura) {
+    public void setUltimaSobSemadura(LocalDate ultimaSobSemadura) {
         if (ultimaSobSemadura != null) {
             this.ultimaSobSemadura = ultimaSobSemadura;
             System.out.println("Sucesso ao setar última sob semeadura");
@@ -90,11 +90,11 @@ public class Pasto implements Serializable {
         }
     }
 
-    public Date getUltimaAdubacao() {
+    public LocalDate getUltimaAdubacao() {
         return ultimaAdubacao;
     }
 
-    public void setUltimaAdubacao(Date ultimaAdubacao) {
+    public void setUltimaAdubacao(LocalDate ultimaAdubacao) {
         if (ultimaAdubacao != null) {
             this.ultimaAdubacao = ultimaAdubacao;
             System.out.println("Sucesso ao setar última adubação");

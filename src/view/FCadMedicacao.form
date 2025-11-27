@@ -55,12 +55,12 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="MedicacaoTipo" max="32767" attributes="0"/>
+                          <Component id="sla" max="32767" attributes="0"/>
                           <Component id="jLabel5" pref="196" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="MedicacaoNome1" max="32767" attributes="0"/>
+                          <Component id="MedicacaoTipo" max="32767" attributes="0"/>
                           <Component id="MedicacaoDescricao" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -86,8 +86,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="sla" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="MedicacaoTipo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="MedicacaoNome1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -173,7 +173,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="MedicacaoTipo">
+    <Component class="javax.swing.JLabel" name="sla">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="14" style="1"/>
@@ -194,7 +194,7 @@
         <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="MedicacaoNome1">
+    <Component class="javax.swing.JTextField" name="MedicacaoTipo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="12" style="1"/>

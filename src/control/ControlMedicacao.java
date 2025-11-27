@@ -70,6 +70,8 @@ public class ControlMedicacao {
     public void limpar() {
         fCadMedicacao.MedicacaoNome.setText("");
         fCadMedicacao.MedicacaoDosagem.setText("");
+        fCadMedicacao.MedicacaoTipo.setText("");
+        fCadMedicacao.MedicacaoDescricao.setText("");
     }
 
     public void gravarMedicacao() {
@@ -78,7 +80,7 @@ public class ControlMedicacao {
             String dosagem = fCadMedicacao.MedicacaoDosagem.getText();
             String tipo = fCadMedicacao.MedicacaoTipo.getText();
             String descricao = fCadMedicacao.MedicacaoDescricao.getText();
-            Medicacao m = new Medicacao(tipo, dosagem, tipo, descricao);
+            Medicacao m = new Medicacao(nomeMedicacao, dosagem, tipo, descricao);
             if (daoMedicacao.inserir(m)) {
                 JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                 limpar();
@@ -89,7 +91,7 @@ public class ControlMedicacao {
             medicacaoSelecionada.setNome(fCadMedicacao.MedicacaoNome.getText());
             medicacaoSelecionada.setDosagem(fCadMedicacao.MedicacaoDosagem.getText());
             medicacaoSelecionada.setDescricao(fCadMedicacao.MedicacaoDescricao.getText());
-            medicacaoSelecionada.setTipo(fCadMedicacao.MedicacaoTipo.getText());
+            medicacaoSelecionada.setTipo(fCadMedicacao.sla.getText());
             if (daoMedicacao.editar(medicacaoSelecionada)) {
                 medicacaoSelecionada = null;
                 limpar();
@@ -108,7 +110,7 @@ public class ControlMedicacao {
                 medicacaoSelecionada = modelMedicacao.getMedicacao(linhaSelecionada);
                 fCadMedicacao.MedicacaoNome.setText(medicacaoSelecionada.getNome());
                 fCadMedicacao.MedicacaoDosagem.setText(medicacaoSelecionada.getDosagem());
-                fCadMedicacao.MedicacaoTipo.setText(medicacaoSelecionada.getTipo());
+                fCadMedicacao.sla.setText(medicacaoSelecionada.getTipo());
                 fCadMedicacao.MedicacaoDescricao.setText(medicacaoSelecionada.getDescricao());
                 fConsMedicacao.setVisible(false);
                 fCadMedicacao.setVisible(true);

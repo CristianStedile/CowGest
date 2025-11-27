@@ -34,9 +34,9 @@ public class FCadMedicacao extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         MedicacaoNome = new javax.swing.JTextField();
         MedicacaoDosagem = new javax.swing.JTextField();
-        MedicacaoTipo = new javax.swing.JLabel();
+        sla = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        MedicacaoNome1 = new javax.swing.JTextField();
+        MedicacaoTipo = new javax.swing.JTextField();
         MedicacaoDescricao = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -64,15 +64,15 @@ public class FCadMedicacao extends javax.swing.JDialog {
 
         MedicacaoDosagem.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
-        MedicacaoTipo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        MedicacaoTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MedicacaoTipo.setText("Tipo:");
+        sla.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        sla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sla.setText("Tipo:");
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Descrição:");
 
-        MedicacaoNome1.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        MedicacaoTipo.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         MedicacaoDescricao.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
@@ -103,11 +103,11 @@ public class FCadMedicacao extends javax.swing.JDialog {
                         .addComponent(MedicacaoOK))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(MedicacaoTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MedicacaoNome1)
+                            .addComponent(MedicacaoTipo)
                             .addComponent(MedicacaoDescricao))))
                 .addContainerGap())
         );
@@ -126,8 +126,8 @@ public class FCadMedicacao extends javax.swing.JDialog {
                     .addComponent(MedicacaoDosagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MedicacaoTipo)
-                    .addComponent(MedicacaoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sla)
+                    .addComponent(MedicacaoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -148,12 +148,12 @@ public class FCadMedicacao extends javax.swing.JDialog {
     public javax.swing.JTextField MedicacaoDescricao;
     public javax.swing.JTextField MedicacaoDosagem;
     public javax.swing.JTextField MedicacaoNome;
-    public javax.swing.JTextField MedicacaoNome1;
     public javax.swing.JButton MedicacaoOK;
-    public javax.swing.JLabel MedicacaoTipo;
+    public javax.swing.JTextField MedicacaoTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel sla;
     // End of variables declaration//GEN-END:variables
 }

@@ -79,6 +79,7 @@ public class ControlInseminacao {
     }
 
     public void cadastrarInseminacao() {
+        limpar();
         carregarAnimais();
         carregarSemens();
         this.fCadInseminacao.setVisible(true);
@@ -86,7 +87,6 @@ public class ControlInseminacao {
 
     public void gravarInseminacao() {
         if (inseminacaoSelecionada == null) {
-            limpar();
             String data = fCadInseminacao.tfData.getText();
             Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadInseminacao.cbAnimais.getModel().getSelectedItem()));
             Semen s = daoSemen.selecionar((String) fCadInseminacao.cbSemens.getModel().getSelectedItem());
@@ -96,11 +96,16 @@ public class ControlInseminacao {
                 if (daoInseminacao.inserir(i)) {
                     JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                     limpar();
-                    s.removerDoses(1);
+                    for (Semen semen : daoSemen.listar()) {
+                        if (semen.getTouro().equals(s)) {
+                            s.removerDoses(1);
+                            daoSemen.editar(s);
+                        }
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Erro ao inserir!");
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "O sêmen selecionado não possui estoque!");
             }
         } else {

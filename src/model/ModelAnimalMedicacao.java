@@ -1,6 +1,8 @@
 package model;
 
 import entidades.AnimalMedicacao;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -8,6 +10,12 @@ import javax.swing.table.AbstractTableModel;
 public class ModelAnimalMedicacao extends AbstractTableModel {
 
     private List<AnimalMedicacao> aplicacoes = new ArrayList<>();
+
+    public String converterDataBr(LocalDate data) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataBr = data.format(formatter);
+        return dataBr;
+    }
 
     @Override
     public int getRowCount() {
@@ -40,13 +48,13 @@ public class ModelAnimalMedicacao extends AbstractTableModel {
         AnimalMedicacao am = aplicacoes.get(rowIndex);
         switch (columnIndex) {
             case 0: {
-                return " "+am.getAnimal().getNumero();
+                return " " + am.getAnimal().getNumero();
             }
             case 1: {
-                return " "+am.getMedicacao().getNome();
+                return " " + am.getMedicacao().getNome();
             }
             case 2: {
-                return " "+am.getData();
+                return " " + converterDataBr(am.getData());
             }
         }
         return null;

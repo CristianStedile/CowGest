@@ -16,7 +16,7 @@ public class ModelMedicacao extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 2;
+        return 4;
     }
 
     @Override
@@ -27,6 +27,12 @@ public class ModelMedicacao extends AbstractTableModel {
             }
             case 1: {
                 return "Dosagem da Medicação";
+            }
+            case 2: {
+                return "Tipo";
+            }
+            case 3: {
+                return "Descrição";
             }
         }
         return "";
@@ -42,6 +48,13 @@ public class ModelMedicacao extends AbstractTableModel {
             case 1: {
                 return " "+m.getDosagem();
             }
+            case 2: {
+                return " "+m.getTipo();
+            }
+            case 3: {
+                return " "+m.getDescricao();
+            }
+            
         }
         return null;
     }

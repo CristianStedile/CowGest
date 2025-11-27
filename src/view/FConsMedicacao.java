@@ -65,7 +65,7 @@ public class FConsMedicacao extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 217, Short.MAX_VALUE)
+                        .addGap(0, 455, Short.MAX_VALUE)
                         .addComponent(MedicacaoExcluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(MedicacaoEditar)))

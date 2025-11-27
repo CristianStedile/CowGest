@@ -49,9 +49,9 @@ public class DaoMedicacao extends Dao {
         }
     }
 
-    public Medicacao selecionar(String nomeMedicacao) {
+    public Medicacao selecionar(String nome) {
         try {
-            return (Medicacao) em.createQuery("select m from Medicacao m where m.nomeMedicacao = :nomeMedicacao").setParameter("nomeMedicacao", nomeMedicacao).getSingleResult();
+            return (Medicacao) em.createQuery("select m from Medicacao m where m.nome = :nome").setParameter("nome", nome).getSingleResult();
         } catch (NoResultException n) {
             return null;
         }

@@ -1,6 +1,8 @@
 package model;
 
 import entidades.PesagemLeite;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -8,6 +10,12 @@ import javax.swing.table.AbstractTableModel;
 public class ModelPeso extends AbstractTableModel {
 
     private List<PesagemLeite> pesos = new ArrayList<>();
+
+    public String converterDataBr(LocalDate data) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataBr = data.format(formatter);
+        return dataBr;
+    }
 
     @Override
     public int getRowCount() {
@@ -49,7 +57,7 @@ public class ModelPeso extends AbstractTableModel {
                 return " " + p.getPeso();
             }
             case 2: {
-                return " " + p.getData();
+                return " " + converterDataBr(p.getData());
             }
             case 3: {
                 return " " + p.getRacao();

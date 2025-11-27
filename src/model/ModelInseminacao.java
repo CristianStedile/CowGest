@@ -1,6 +1,9 @@
 package model;
 
+import control.ControlPrincipal;
 import entidades.Inseminacao;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -9,6 +12,12 @@ public class ModelInseminacao extends AbstractTableModel {
 
     private List<Inseminacao> inseminacoes = new ArrayList<>();
 
+    public String converterDataBr(LocalDate data) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataBr = data.format(formatter);
+        return dataBr;
+    }
+
     @Override
     public int getRowCount() {
         return inseminacoes.size();
@@ -16,7 +25,7 @@ public class ModelInseminacao extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 6;
     }
 
     @Override
@@ -30,6 +39,15 @@ public class ModelInseminacao extends AbstractTableModel {
             }
             case 2: {
                 return "Data";
+            }
+            case 3: {
+                return "Data de secagem";
+            }
+            case 4: {
+                return "Data de pré parto";
+            }
+            case 5: {
+                return "Data de parto";
             }
         }
         return "";
@@ -46,7 +64,16 @@ public class ModelInseminacao extends AbstractTableModel {
                 return " " + i.getSemen().getTouro();
             }
             case 2: {
-                return " " + i.getData();
+                return " " + converterDataBr(i.getData());
+            }
+            case 3: {
+                return " " + converterDataBr(i.getSecagem());
+            }
+            case 4: {
+                return " " + converterDataBr(i.getPreParto());
+            }
+            case 5: {
+                return " " + converterDataBr(i.getParto());
             }
         }
         return null;

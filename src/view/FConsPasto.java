@@ -31,6 +31,9 @@ public class FConsPasto extends javax.swing.JDialog {
         tbPastos = new javax.swing.JTable();
         btEditar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
+        btRocar = new javax.swing.JButton();
+        btAdubar = new javax.swing.JButton();
+        btSobSemeadura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta de Animais");
@@ -64,19 +67,49 @@ public class FConsPasto extends javax.swing.JDialog {
             }
         });
 
+        btRocar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        btRocar.setText("ROÇAR");
+        btRocar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRocarActionPerformed(evt);
+            }
+        });
+
+        btAdubar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        btAdubar.setText("ADUBAR");
+        btAdubar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdubarActionPerformed(evt);
+            }
+        });
+
+        btSobSemeadura.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        btSobSemeadura.setText("REALIZAR SOB SEMEADURA");
+        btSobSemeadura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSobSemeaduraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btEditar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btSobSemeadura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btAdubar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btRocar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btExcluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btEditar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -87,7 +120,10 @@ public class FConsPasto extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btEditar)
-                    .addComponent(btExcluir))
+                    .addComponent(btExcluir)
+                    .addComponent(btRocar)
+                    .addComponent(btAdubar)
+                    .addComponent(btSobSemeadura))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -99,10 +135,25 @@ public class FConsPasto extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btExcluirActionPerformed
 
+    private void btRocarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRocarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btRocarActionPerformed
+
+    private void btAdubarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdubarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btAdubarActionPerformed
+
+    private void btSobSemeaduraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSobSemeaduraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btSobSemeaduraActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btAdubar;
     public javax.swing.JButton btEditar;
     public javax.swing.JButton btExcluir;
+    public javax.swing.JButton btRocar;
+    public javax.swing.JButton btSobSemeadura;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tbPastos;
     // End of variables declaration//GEN-END:variables

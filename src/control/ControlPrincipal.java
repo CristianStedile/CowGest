@@ -19,7 +19,6 @@ public class ControlPrincipal {
     private ControlPasto controlPasto;
     private ControlMedicacao controlMedicacao;
     private ControlSemen controlSemen;
-    private ControlLeiteVendido controlLeiteVendido;
 
     public ControlPrincipal() {
         fPrincipal = new FPrincipal();
@@ -31,7 +30,6 @@ public class ControlPrincipal {
         controlInseminacao = new ControlInseminacao(this);
         controlAnimalMedicacao = new ControlAnimalMedicacao(this);
         controlSemen = new ControlSemen();
-        controlLeiteVendido = new ControlLeiteVendido();
         inicializarComponentes();
     }
 

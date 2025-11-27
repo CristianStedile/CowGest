@@ -12,6 +12,7 @@ import view.FConsPasto;
 
 public class ControlPasto {
 
+    LocalDate dataAtual = LocalDate.now();
     private FCadPasto fCadPasto;
     private DaoPasto daoPasto;
     private FConsPasto fConsPasto;
@@ -45,7 +46,7 @@ public class ControlPasto {
                 editar();
             }
         });
-        
+
         fConsPasto.btExcluir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,6 +60,75 @@ public class ControlPasto {
                 cancelar();
             }
         });
+        
+        fConsPasto.btRocar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rocar();
+            }
+        });
+        
+        fConsPasto.btSobSemeadura.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                sobSemeadura();
+            }
+        });
+        
+        fConsPasto.btAdubar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                adubar();
+            }
+        });
+    }
+
+    public void rocar() {
+        int linhaSelecionada = fConsPasto.tbPastos.getSelectedRow();
+        if (linhaSelecionada >= 0) {
+            if (JOptionPane.showConfirmDialog(null, "Deseja mesmo roçar o pasto?") == 0) {
+                Pasto p = modelPasto.getPasto(linhaSelecionada);
+                p.setUltimaRocada(dataAtual);
+                if(daoPasto.editar(p)){
+                    JOptionPane.showMessageDialog(null, "Roçado com sucesso!");
+                    carregarPastos();
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada!");
+        }
+    }
+    
+    public void sobSemeadura() {
+        int linhaSelecionada = fConsPasto.tbPastos.getSelectedRow();
+        if (linhaSelecionada >= 0) {
+            if (JOptionPane.showConfirmDialog(null, "Deseja mesmo realizar sob semeadura no pasto?") == 0) {
+                Pasto p = modelPasto.getPasto(linhaSelecionada);
+                p.setUltimaSobSemadura(dataAtual);
+                if(daoPasto.editar(p)){
+                    JOptionPane.showMessageDialog(null, "Sob semeadura realizada com sucesso!");
+                    carregarPastos();
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada!");
+        }
+    }
+    
+    public void adubar() {
+        int linhaSelecionada = fConsPasto.tbPastos.getSelectedRow();
+        if (linhaSelecionada >= 0) {
+            if (JOptionPane.showConfirmDialog(null, "Deseja mesmo adubar o pasto?") == 0) {
+                Pasto p = modelPasto.getPasto(linhaSelecionada);
+                p.setUltimaAdubacao(dataAtual);
+                if(daoPasto.editar(p)){
+                    JOptionPane.showMessageDialog(null, "Adubado com sucesso!");
+                    carregarPastos();
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada!");
+        }
     }
 
     public void cancelar() {
