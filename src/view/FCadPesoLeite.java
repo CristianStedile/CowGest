@@ -51,7 +51,7 @@ public class FCadPesoLeite extends javax.swing.JDialog {
         PesoCancelar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         PesoCancelar.setText("CANCELAR");
 
-        PesoPesagem.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        PesoPesagem.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##.##"))));
         PesoPesagem.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
 
         animais.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N

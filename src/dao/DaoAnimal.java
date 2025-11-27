@@ -49,7 +49,7 @@ public class DaoAnimal extends Dao {
         }
     }
 
-    public Animal selecionar(int numeroAnimal) {
+    public Animal selecionar(String numeroAnimal) {
         try {
             return (Animal) em.createQuery("select a from Animal a where a.numero = :numero").setParameter("numero", numeroAnimal).getSingleResult();
         } catch (NoResultException n) {

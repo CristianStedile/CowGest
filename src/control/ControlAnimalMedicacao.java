@@ -84,7 +84,7 @@ public class ControlAnimalMedicacao {
     public void gravarAplicacao() {
         if (aplicacaoSelecionada == null) {
             LocalDate data = controlPrincipal.converterDataBanco(fCadAplicacaoMedicacao.AplicacaoData.getText());
-            Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadAplicacaoMedicacao.AplicacaoNumero.getModel().getSelectedItem()));
+            Animal a = daoAnimal.selecionar((String) fCadAplicacaoMedicacao.AplicacaoNumero.getModel().getSelectedItem());
             Medicacao m = daoMedicacao.selecionar((String) fCadAplicacaoMedicacao.AplicacaoNome.getModel().getSelectedItem());
             AnimalMedicacao am = new AnimalMedicacao(data, a, m);
             if (daoAplicacaoMedicacao.inserir(am)) {

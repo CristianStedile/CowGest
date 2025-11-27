@@ -122,7 +122,7 @@ public class ControlAnimal {
     public void darBaixa() {
         int linhaSelecionada = fConsAnimal.AnimalTabela.getSelectedRow();
         if (JOptionPane.showConfirmDialog(null, "Deseja mesmo dar baixa no animal?") == 0) {
-            Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadBaixa.animais.getModel().getSelectedItem()));
+            Animal a = daoAnimal.selecionar((String) fCadBaixa.animais.getModel().getSelectedItem());
             String motivo = fCadBaixa.BaixaMotivo.getText();
             LocalDate data = controlPrincipal.converterDataBanco(fCadBaixa.BaixaData.getText());
             Baixa b = new Baixa(data, motivo, a);

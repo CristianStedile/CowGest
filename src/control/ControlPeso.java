@@ -82,7 +82,7 @@ public class ControlPeso {
     public void gravarPeso() {
         if (pesoSelecionado == null) {
             String dataPesagem = fCadPesoLeite.PesoData.getText();
-            Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadPesoLeite.animais.getModel().getSelectedItem()));
+            Animal a = daoAnimal.selecionar(String.valueOf(fCadPesoLeite.animais.getModel().getSelectedItem()));
             double pesagem = Double.parseDouble(fCadPesoLeite.PesoPesagem.getText().replace(",", "."));
             LocalDate dataConvertida = controlPrincipal.converterDataBanco(dataPesagem);
             PesagemLeite p = new PesagemLeite(pesagem, dataConvertida, a);
@@ -95,7 +95,8 @@ public class ControlPeso {
         } else {
             pesoSelecionado.setPesagemLeite(Double.parseDouble(fCadPesoLeite.PesoPesagem.getText()));
             pesoSelecionado.setData(controlPrincipal.converterDataBanco(fCadPesoLeite.PesoData.getText()));
-            pesoSelecionado.setAnimal((Animal) fCadPesoLeite.animais.getModel().getSelectedItem());
+            Animal a = daoAnimal.selecionar(String.valueOf(fCadPesoLeite.animais.getModel().getSelectedItem()));
+            pesoSelecionado.setAnimal(a);
             if(daoPesoLeite.editar(pesoSelecionado)){
             JOptionPane.showMessageDialog(null, "Editado com sucesso!");
             pesoSelecionado = null;

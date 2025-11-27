@@ -88,7 +88,7 @@ public class ControlInseminacao {
     public void gravarInseminacao() {
         if (inseminacaoSelecionada == null) {
             String data = fCadInseminacao.tfData.getText();
-            Animal a = daoAnimal.selecionar(Integer.parseInt((String) fCadInseminacao.cbAnimais.getModel().getSelectedItem()));
+            Animal a = daoAnimal.selecionar((String) fCadInseminacao.cbAnimais.getModel().getSelectedItem());
             Semen s = daoSemen.selecionar((String) fCadInseminacao.cbSemens.getModel().getSelectedItem());
             LocalDate dataConvertida = controlPrincipal.converterDataBanco(data);
             Inseminacao i = new Inseminacao(dataConvertida, a, s);
